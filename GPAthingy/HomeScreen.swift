@@ -74,7 +74,7 @@ struct HomeScreen: View {
                     Button ("Calculate") {
                     }
                     .frame(width: 354, height: 49)
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.system(size: 22, weight: .bold))
                     .foregroundColor(Color.white)
                     .background(Color_7371fc)
                     .cornerRadius(15)

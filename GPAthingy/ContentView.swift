@@ -24,7 +24,7 @@ struct ContentView: View {
                 }
             ProgressScreen()
                 .tabItem {
-                    Label("Progress", systemImage: "dotgraph.fill")
+                    Label("Progress", systemImage: "chart.xyaxis.line")
                 }
         }
     }

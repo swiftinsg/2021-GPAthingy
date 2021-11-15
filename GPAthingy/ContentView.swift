@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+let tabBarSelectedAccent = Color(red: 134 / 255, green: 125 / 255, blue: 254 / 255)
+
 struct ContentView: View {
     var body: some View {
         TabView {
@@ -27,6 +29,10 @@ struct ContentView: View {
                     Label("Progress", systemImage: "chart.xyaxis.line")
                 }
         }
+        .onAppear() {
+            UITabBar.appearance().backgroundColor = .white
+        }
+        .accentColor(tabBarSelectedAccent)
     }
 }
 

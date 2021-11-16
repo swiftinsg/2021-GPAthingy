@@ -20,12 +20,12 @@ struct SubjectDetailView: View {
                         NavigationLink(destination: ActualSubjectDetailView(subject: subject)) {
                             HStack {
                                 HStack (alignment: .top){
-                                    Text( subject.name)
+                                    Text(subject.name)
                                         .bold()
                                 }
                                 Spacer()
                                 HStack (alignment: .bottom) {
-                                    Text("69%")
+                                    Text(subject.name)
                                 }
                             }
                             

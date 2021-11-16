@@ -13,7 +13,7 @@ struct ActualSubjectDetailView: View {
     var body: some View {
         VStack {
             Text(subject.name)
-            Text(subject.score)
+            Text("\(subject.score)")
         }
     }
 }

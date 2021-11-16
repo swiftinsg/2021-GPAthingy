@@ -9,8 +9,8 @@ import SwiftUI
 struct SubjectDetailView: View {
     var assessment: Assessment;
     
-    var subject = [Subject(name: "Math"),
-                      Subject(name: "English")]
+    var subject = [Subject(name: "Math", score: 50),
+                   Subject(name: "English", score: 69)]
     
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     var body: some View {

@@ -25,7 +25,7 @@ struct SubjectDetailView: View {
                                 }
                                 Spacer()
                                 HStack (alignment: .bottom) {
-                                    Text(subject.name)
+                                    Text("\(Int(subject.score))%")
                                 }
                             }
                             

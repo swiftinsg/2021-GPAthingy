@@ -14,7 +14,6 @@ struct SubjectDetailView: View {
     
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     var body: some View {
-        NavigationView {
             List {
                 ForEach(subject) { subject in
                     VStack(alignment: .leading) {
@@ -41,7 +40,7 @@ struct SubjectDetailView: View {
             } .navigationTitle("Subjects")
         }
     }
-}
+
 
 struct SubjectDetailView_Previews: PreviewProvider {
     static var previews: some View {

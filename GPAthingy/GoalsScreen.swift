@@ -22,8 +22,8 @@ struct GoalsScreen: View {
                 VStack(alignment: .leading) {
                     HStack {
                         HStack (alignment: .top){
-                        Text( todo.name)
-                            .bold()
+                            Text( todo.name)
+                                .bold()
                         }
                         Spacer()
                         HStack (alignment: .bottom) {

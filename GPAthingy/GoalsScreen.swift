@@ -36,14 +36,10 @@ struct GoalsScreen: View {
                     }
                     
                 }
-                .cornerRadius(10.0)
                 
             } .listRowBackground(listItemColor)
             
                 .padding()
-            
-            
-            
             
         }
     }

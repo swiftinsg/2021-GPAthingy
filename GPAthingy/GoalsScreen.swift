@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct GoalsScreen: View {
+    
+    var todo = [ToDo(name: "Read Math Textbook"),
+                   ToDo(name: "Holiday Homework"),
+                   ToDo(name: "Read Up On Thesis")]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(todo) { todo in
+            VStack(alignment: .leading) {
+                Text( todo.name)
+                    .bold()
+            }
+        }
     }
 }
 
 struct GoalsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GoalsScreen()
+        ContentView()
     }
 }

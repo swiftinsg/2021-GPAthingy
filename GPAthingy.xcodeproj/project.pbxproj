@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		920EA31627434BD10092D157 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920EA31527434BD10092D157 /* ToDo.swift */; };
 		9988324E27422A140000AAED /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9988324D27422A140000AAED /* Assessment.swift */; };
 		99B748DA2742159A00960479 /* GPAthingyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B748D92742159A00960479 /* GPAthingyApp.swift */; };
 		99B748DC2742159A00960479 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B748DB2742159A00960479 /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		920EA31527434BD10092D157 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		9988324D27422A140000AAED /* Assessment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessment.swift; sourceTree = "<group>"; };
 		99B748D62742159A00960479 /* GPAthingy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPAthingy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B748D92742159A00960479 /* GPAthingyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAthingyApp.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				99B748D92742159A00960479 /* GPAthingyApp.swift */,
 				99B748DB2742159A00960479 /* ContentView.swift */,
 				99B748EA2742165700960479 /* GoalsScreen.swift */,
+				920EA31527434BD10092D157 /* ToDo.swift */,
 				99B748E92742165700960479 /* HomeScreen.swift */,
 				99B748EC2742165800960479 /* ProgressScreen.swift */,
 				99B748EB2742165800960479 /* TestScores.swift */,
@@ -156,6 +159,7 @@
 				99B748DC2742159A00960479 /* ContentView.swift in Sources */,
 				99B748DA2742159A00960479 /* GPAthingyApp.swift in Sources */,
 				99B748EE2742165800960479 /* GoalsScreen.swift in Sources */,
+				920EA31627434BD10092D157 /* ToDo.swift in Sources */,
 				99B748ED2742165800960479 /* HomeScreen.swift in Sources */,
 				99B748F02742165800960479 /* ProgressScreen.swift in Sources */,
 				99B748EF2742165800960479 /* TestScores.swift in Sources */,

@@ -10,6 +10,7 @@ import SwiftUI
 struct GoalsScreen: View {
     
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
+    let circleColor = Color(red: 255 / 255, green: 127 / 255, blue: 127 / 255)
     
     var todo = [ToDo(name: "Read Math Textbook"),
                 ToDo(name: "Holiday Homework"),
@@ -26,23 +27,19 @@ struct GoalsScreen: View {
                         }
                         Spacer()
                         HStack (alignment: .bottom) {
-                            
-                            Circle()
-                                .frame(width: 28, height: 18)
+                        Circle()
+                            .frame(width: 28, height: 18)
+                            .foregroundColor(circleColor)
                         }
                         
                         
                     }
                     
                 }
-                .cornerRadius(10.0)
                 
             } .listRowBackground(listItemColor)
             
                 .padding()
-            
-            
-            
             
         }
     }

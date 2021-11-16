@@ -43,7 +43,7 @@ struct GoalsScreen: View {
             
         }
     }
-    
+//    
     struct GoalsScreen_Previews: PreviewProvider {
         static var previews: some View {
             ContentView()

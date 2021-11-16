@@ -66,14 +66,22 @@ struct HomeScreen: View {
                         
                         NavigationLink(destination : TestScores()) {
                             
-                            Text("Select Test")
-                                .font(.system(size: 24))
-                                .frame(width: 354, height: 49)
-                                .foregroundColor(Color.black)
-                                .background(Color_cdc1ff)
-                                .cornerRadius(15)
-                                .multilineTextAlignment(.leading)
-                                .padding(2)
+                            ZStack {
+                                
+                                Rectangle()
+                                    .frame(width: 354, height: 49)
+                                    .foregroundColor(Color_cdc1ff)
+                                    .cornerRadius(15)
+                                
+                                HStack {
+                                    Text("Select Test")
+                                        .font(.system(size: 24))
+                                        .foregroundColor(Color.black)
+                                        .padding(2)
+                                        .offset(x : -100)
+                                    
+                                }
+                            }
                         }
                         
                         

@@ -2,7 +2,7 @@
 //  TestScores.swift
 //  GPA
 //
-//  Created by Yashvi Shah on 13/11/21.
+//  Created by cpyoufy on 13/11/21.
 //
 
 import SwiftUI

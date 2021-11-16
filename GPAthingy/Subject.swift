@@ -12,4 +12,5 @@ struct Subject: Identifiable {
     var id = UUID()
     
     var name: String
+    var score: Double
 }

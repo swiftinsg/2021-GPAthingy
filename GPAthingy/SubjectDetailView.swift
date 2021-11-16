@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct SubjectDetailView: View {
+    
     var assessment: Assessment;
     
     var subject = [Subject(name: "Math", score: 50),
@@ -14,10 +15,11 @@ struct SubjectDetailView: View {
     
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     var body: some View {
-            List {
-                ForEach(subject) { subject in
-                    VStack(alignment: .leading) {
-                        NavigationLink(destination: ActualSubjectDetailView(subject: subject)) {
+        List {
+            ForEach(subject) { subject in
+                VStack(alignment: .leading) {
+                    NavigationLink(destination: ActualSubjectDetailView(subject: subject)) {
+                        VStack(alignment: .leading) {
                             HStack {
                                 HStack (alignment: .top){
                                     Text(subject.name)
@@ -28,18 +30,19 @@ struct SubjectDetailView: View {
                                     Text("\(Int(subject.score))%")
                                 }
                             }
-                            
+                            ProgressView(value: subject.score, total: 100)
                         }
                         
                     }
-                    
-                } .listRowBackground(listItemColor)
+                }
                 
-                .padding()
-                
-            } .navigationTitle("Subjects")
-        }
+            } .listRowBackground(listItemColor)
+            
+            .padding()
+            
+        } .navigationTitle("Subjects")
     }
+}
 
 
 struct SubjectDetailView_Previews: PreviewProvider {

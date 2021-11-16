@@ -17,6 +17,7 @@
 		99B748EE2742165800960479 /* GoalsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B748EA2742165700960479 /* GoalsScreen.swift */; };
 		99B748EF2742165800960479 /* TestScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B748EB2742165800960479 /* TestScores.swift */; };
 		99B748F02742165800960479 /* ProgressScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B748EC2742165800960479 /* ProgressScreen.swift */; };
+		99B8897B27436F40008C9AA6 /* SubjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B8897A27436F40008C9AA6 /* SubjectDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		99B748EA2742165700960479 /* GoalsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsScreen.swift; sourceTree = "<group>"; };
 		99B748EB2742165800960479 /* TestScores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScores.swift; sourceTree = "<group>"; };
 		99B748EC2742165800960479 /* ProgressScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressScreen.swift; sourceTree = "<group>"; };
+		99B8897A27436F40008C9AA6 /* SubjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				99B748E92742165700960479 /* HomeScreen.swift */,
 				99B748EC2742165800960479 /* ProgressScreen.swift */,
 				99B748EB2742165800960479 /* TestScores.swift */,
+				99B8897A27436F40008C9AA6 /* SubjectDetailView.swift */,
 				9988324D27422A140000AAED /* Assessment.swift */,
 				99B748DD2742159D00960479 /* Assets.xcassets */,
 				99B748E22742159D00960479 /* Info.plist */,
@@ -156,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B8897B27436F40008C9AA6 /* SubjectDetailView.swift in Sources */,
 				99B748DC2742159A00960479 /* ContentView.swift in Sources */,
 				99B748DA2742159A00960479 /* GPAthingyApp.swift in Sources */,
 				99B748EE2742165800960479 /* GoalsScreen.swift in Sources */,

@@ -20,19 +20,21 @@ struct GoalsScreen: View {
             ForEach(todo) { todo in
                 VStack(alignment: .leading) {
                     HStack {
-                        
+                        HStack (alignment: .top){
                         Text( todo.name)
                             .bold()
-                            .frame(alignment: .leading)
-                        
+                        }
                         Spacer()
-                        
+                        HStack (alignment: .bottom) {
                         Circle()
                             .frame(width: 28, height: 18)
+                        }
                         
                         
                     }
+                    
                 }
+                .cornerRadius(10.0)
                 
             } .listRowBackground(listItemColor)
             

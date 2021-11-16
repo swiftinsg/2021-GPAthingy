@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		920EA31627434BD10092D157 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920EA31527434BD10092D157 /* ToDo.swift */; };
+		99092AE7274431E300E48CC0 /* NewAssessmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99092AE6274431E200E48CC0 /* NewAssessmentView.swift */; };
 		9988324E27422A140000AAED /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9988324D27422A140000AAED /* Assessment.swift */; };
 		99B748DA2742159A00960479 /* GPAthingyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B748D92742159A00960479 /* GPAthingyApp.swift */; };
 		99B748DC2742159A00960479 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B748DB2742159A00960479 /* ContentView.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		920EA31527434BD10092D157 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		99092AE6274431E200E48CC0 /* NewAssessmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAssessmentView.swift; sourceTree = "<group>"; };
 		9988324D27422A140000AAED /* Assessment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessment.swift; sourceTree = "<group>"; };
 		99B748D62742159A00960479 /* GPAthingy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPAthingy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B748D92742159A00960479 /* GPAthingyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAthingyApp.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				99B8897A27436F40008C9AA6 /* SubjectDetailView.swift */,
 				99B889802743751F008C9AA6 /* ActualSubjectDetailView.swift */,
 				9988324D27422A140000AAED /* Assessment.swift */,
+				99092AE6274431E200E48CC0 /* NewAssessmentView.swift */,
 				99B748DD2742159D00960479 /* Assets.xcassets */,
 				99B748E22742159D00960479 /* Info.plist */,
 				99B748DF2742159D00960479 /* Preview Content */,
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99B8897B27436F40008C9AA6 /* SubjectDetailView.swift in Sources */,
+				99092AE7274431E300E48CC0 /* NewAssessmentView.swift in Sources */,
 				99B748DC2742159A00960479 /* ContentView.swift in Sources */,
 				99B748DA2742159A00960479 /* GPAthingyApp.swift in Sources */,
 				99B748EE2742165800960479 /* GoalsScreen.swift in Sources */,

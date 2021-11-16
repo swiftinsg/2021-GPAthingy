@@ -12,6 +12,7 @@ struct TestScores: View {
         Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2),
         Assessment(name: "Assessment 2", totalScore: 91, numberOfSubjects: 10)]
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
+    
     var body: some View {
         NavigationView {
             List {

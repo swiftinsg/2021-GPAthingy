@@ -12,6 +12,7 @@ struct SubjectDetailView: View {
     
     @State var subjects = [Subject(name: "Math", score: 50),
                    Subject(name: "English", score: 69)]
+    @State var isSheetPresented = false
     
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     var body: some View {
@@ -48,9 +49,19 @@ struct SubjectDetailView: View {
             .padding()
         }
         .navigationTitle("Subjects")
-        .navigationBarItems(trailing: EditButton())
-    
-    }
+        .navigationBarItems(leading: Button(action: {
+            
+            isSheetPresented = true
+            
+        }, label: {
+            Image(systemName: "plus")
+        }),
+        
+            trailing: EditButton()
+                            )
+        /*.sheet(isPresented: $isSheetPresented) {
+             NewAssessmentView(subjects: $subjects)
+    }*/
 }
 
 
@@ -58,4 +69,5 @@ struct SubjectDetailView_Previews: PreviewProvider {
     static var previews: some View {
         SubjectDetailView(assessment:  .constant (Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)))
     }
+}
 }

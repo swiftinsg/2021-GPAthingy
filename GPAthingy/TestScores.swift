@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct TestScores: View {
-    var assessment = [
+    @State var assessments = [
         Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2),
         Assessment(name: "Assessment 2", totalScore: 91, numberOfSubjects: 10)]
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     var body: some View {
         NavigationView {
             List {
-                ForEach(assessment) { assessment in
+                ForEach(assessments) { assessment in
+                    let assessmentIndex = assessments.firstIndex(of: assessment)!
                     VStack(alignment: .leading) {
-                        NavigationLink(destination: SubjectDetailView(assessment: assessment)) {
+                        NavigationLink(destination: SubjectDetailView(assessment: $assessments[assessmentIndex])) {
                             VStack {
                                 HStack {
                                     HStack (alignment: .top){
@@ -29,13 +30,16 @@ struct TestScores: View {
                                         Text("\(Int(assessment.totalScore))%")
                                     }
                                 }
-                               ProgressView(value: assessment.totalScore, total: 100)
+                                ProgressView(value: assessment.totalScore, total: 100)
                             }
                         }
                         
                     }
                     
-                } .listRowBackground(listItemColor)
+                }.onDelete(perform: { offsets in
+                    assessments.remove(atOffsets: offsets)
+                })
+                .listRowBackground(listItemColor)
                 
                 .padding()
                 

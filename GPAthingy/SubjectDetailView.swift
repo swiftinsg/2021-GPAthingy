@@ -8,7 +8,7 @@ import SwiftUI
 
 struct SubjectDetailView: View {
     
-    var assessment: Assessment;
+    @Binding var assessment: Assessment;
     
     @State var subject = [Subject(name: "Math", score: 50),
                    Subject(name: "English", score: 69)]
@@ -47,6 +47,6 @@ struct SubjectDetailView: View {
 
 struct SubjectDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        SubjectDetailView(assessment:  Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2))
+        SubjectDetailView(assessment:  .constant (Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)))
     }
 }

@@ -21,13 +21,14 @@ struct GoalsScreen: View {
                 VStack(alignment: .leading) {
                     HStack {
                         
-                            Text( todo.name)
-                        .bold()
-                                .frame(alignment: .leading)
+                        Text( todo.name)
+                            .bold()
+                            .frame(alignment: .leading)
                         
+                        Spacer()
                         
                         Circle()
-                            .frame(width: 28, height: 18, alignment: .trailing)
+                            .frame(width: 28, height: 18)
                         
                         
                     }
@@ -35,7 +36,7 @@ struct GoalsScreen: View {
                 
             } .listRowBackground(listItemColor)
             
-            .padding()
+                .padding()
             
             
             

@@ -16,16 +16,17 @@ struct TestScores: View {
             List {
                 ForEach(assessment) { assessment in
                     VStack(alignment: .leading) {
-                        HStack {
-                            HStack (alignment: .top){
-                                Text( assessment.name)
-                                    .bold()
+                        NavigationLink(destination: SubjectDetailView(assessment: assessment)) {
+                            HStack {
+                                HStack (alignment: .top){
+                                    Text( assessment.name)
+                                        .bold()
+                                }
+                                Spacer()
+                                HStack (alignment: .bottom) {
+                                    Text("69%")
+                                }
                             }
-                            Spacer()
-                            HStack (alignment: .bottom) {
-                               Text("69%")
-                            }
-                            
                             
                         }
                         

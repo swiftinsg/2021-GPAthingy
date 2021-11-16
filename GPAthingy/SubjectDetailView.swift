@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct SubjectDetailView: View {
+    
+    var assessment: Assessment
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(assessment.name)
     }
 }
 
 struct SubjectDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        SubjectDetailView()
+        SubjectDetailView(assessment: Assessment(name: "Assessment 1"))
     }
 }

@@ -36,14 +36,20 @@ struct TestScores: View {
                         
                     }
                     
-                }.onDelete(perform: { offsets in
+                }
+                .onDelete(perform: { offsets in
                     assessments.remove(atOffsets: offsets)
                 })
+                .onMove { source, destination in
+                    assessments.move(fromOffsets: source, toOffset: destination)
+                }
                 .listRowBackground(listItemColor)
                 
                 .padding()
                 
-            } .navigationTitle("Assessments")
+            }
+            .navigationTitle("Assessments")
+            .navigationBarItems(trailing: EditButton())
         }
     }
 }

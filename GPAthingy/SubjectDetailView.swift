@@ -10,37 +10,46 @@ struct SubjectDetailView: View {
     
     @Binding var assessment: Assessment;
     
-    @State var subject = [Subject(name: "Math", score: 50),
+    @State var subjects = [Subject(name: "Math", score: 50),
                    Subject(name: "English", score: 69)]
     
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     var body: some View {
         List {
-            ForEach(0 ..< subject.count) { index in
+            ForEach(subjects) { subject in
+                let subjectIndex = subjects.firstIndex (of: subject)!
                 VStack(alignment: .leading) {
-                    NavigationLink(destination: ActualSubjectDetailView(subject: $subject[index])) {
+                    NavigationLink(destination: ActualSubjectDetailView(subject: $subjects[subjectIndex])) {
                         VStack(alignment: .leading) {
                             HStack {
                                 HStack (alignment: .top){
-                                    Text(subject[index].name)
+                                    Text(subject.name)
                                         .bold()
                                 }
                                 Spacer()
                                 HStack (alignment: .bottom) {
-                                    Text("\(Int(subject[index].score))%")
+                                    Text("\(Int(subject.score))%")
                                 }
                             }
-                            ProgressView(value: subject[index].score, total: 100)
+                            ProgressView(value: subject.score, total: 100)
                         }
                         
                     }
                 }
-                
-            } .listRowBackground(listItemColor)
+            }
+            .onDelete(perform: { offsets in
+                subjects.remove(atOffsets: offsets)
+            })
+            .onMove { source, destination in
+                subjects.move(fromOffsets: source, toOffset: destination)
+            }
+            .listRowBackground(listItemColor)
             
             .padding()
-            
-        } .navigationTitle("Subjects")
+        }
+        .navigationTitle("Subjects")
+        .navigationBarItems(trailing: EditButton())
+    
     }
 }
 

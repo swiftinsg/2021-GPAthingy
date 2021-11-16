@@ -22,7 +22,8 @@ struct HomeScreen: View {
             NavigationView {
                 
                 VStack {
-                    
+                    Text("welcome back")
+                        Spacer()
                     NavigationLink(destination : TestScores()) {
                         
                         Text("Select Test")

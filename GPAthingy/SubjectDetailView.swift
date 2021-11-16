@@ -10,27 +10,27 @@ struct SubjectDetailView: View {
     
     var assessment: Assessment;
     
-    var subject = [Subject(name: "Math", score: 50),
+    @State var subject = [Subject(name: "Math", score: 50),
                    Subject(name: "English", score: 69)]
     
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     var body: some View {
         List {
-            ForEach(subject) { subject in
+            ForEach(0 ..< subject.count) { index in
                 VStack(alignment: .leading) {
-                    NavigationLink(destination: ActualSubjectDetailView(subject: subject)) {
+                    NavigationLink(destination: ActualSubjectDetailView(subject: $subject[index])) {
                         VStack(alignment: .leading) {
                             HStack {
                                 HStack (alignment: .top){
-                                    Text(subject.name)
+                                    Text(subject[index].name)
                                         .bold()
                                 }
                                 Spacer()
                                 HStack (alignment: .bottom) {
-                                    Text("\(Int(subject.score))%")
+                                    Text("\(Int(subject[index].score))%")
                                 }
                             }
-                            ProgressView(value: subject.score, total: 100)
+                            ProgressView(value: subject[index].score, total: 100)
                         }
                         
                     }

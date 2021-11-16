@@ -12,4 +12,6 @@ struct Assessment: Identifiable {
     var id = UUID()
     
     var name: String
+    var totalScore: Double
+    var numberOfSubjects: Int
 }

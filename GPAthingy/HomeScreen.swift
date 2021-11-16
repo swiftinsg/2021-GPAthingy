@@ -34,7 +34,7 @@ struct HomeScreen: View {
                         .font(.system(size: 24))
                         .padding()
                     
-                    Text("Take a break recharge every now and then!")
+                    Text("Take a break to recharge every now and then!")
                         .font(.system(size: 18))
                         .padding()
                 }

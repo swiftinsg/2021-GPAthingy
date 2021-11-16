@@ -47,6 +47,6 @@ struct SubjectDetailView: View {
 
 struct SubjectDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        SubjectDetailView(assessment:  Assessment(name: "Assessment 1"))
+        SubjectDetailView(assessment:  Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2))
     }
 }

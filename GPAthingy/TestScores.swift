@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct TestScores: View {
-    var assessment = [Assessment(name: "Assessment 1"),
-                      Assessment(name: "Assessment 2")]
+    var assessment = [
+        Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2),
+        Assessment(name: "Assessment 2", totalScore: 91, numberOfSubjects: 10)]
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     var body: some View {
         NavigationView {
@@ -17,17 +18,19 @@ struct TestScores: View {
                 ForEach(assessment) { assessment in
                     VStack(alignment: .leading) {
                         NavigationLink(destination: SubjectDetailView(assessment: assessment)) {
-                            HStack {
-                                HStack (alignment: .top){
-                                    Text( assessment.name)
-                                        .bold()
+                            VStack {
+                                HStack {
+                                    HStack (alignment: .top){
+                                        Text( assessment.name)
+                                            .bold()
+                                    }
+                                    Spacer()
+                                    HStack (alignment: .bottom) {
+                                        Text("\(Int(assessment.totalScore))%")
+                                    }
                                 }
-                                Spacer()
-                                HStack (alignment: .bottom) {
-                                    Text("69%")
-                                }
+                               ProgressView(value: assessment.totalScore, total: 100)
                             }
-                            
                         }
                         
                     }
@@ -46,3 +49,4 @@ struct TestScores_Previews: PreviewProvider {
         TestScores()
     }
 }
+

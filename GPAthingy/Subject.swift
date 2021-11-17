@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Subject: Identifiable {
+struct Subject: Identifiable, Equatable {
     var id = UUID()
     
     var name: String

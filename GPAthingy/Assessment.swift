@@ -8,8 +8,10 @@
 import Foundation
 
 
-struct Assessment: Identifiable {
+struct Assessment: Identifiable, Equatable {
     var id = UUID()
     
     var name: String
+    var totalScore: Double
+    var numberOfSubjects: Int
 }

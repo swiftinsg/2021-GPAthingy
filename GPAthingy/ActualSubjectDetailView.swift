@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct ActualSubjectDetailView: View {
-    var subject: Subject
+    @Binding var subject: Subject
     
     var body: some View {
         VStack {
             Text(subject.name)
-            Text("\(subject.score)")
+            Text("\(Int(subject.score))%")
         }
     }
 }
 
 struct ActualSubjectDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ActualSubjectDetailView(subject: Subject(name: "Math",
-                    score: 90))
+        ActualSubjectDetailView(subject: .constant(Subject(name: "Math",
+                    score: 90)))
     }
 }

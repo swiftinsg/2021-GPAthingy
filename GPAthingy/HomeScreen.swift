@@ -19,6 +19,7 @@ struct HomeScreen: View {
     let Color_A594F9 = Color(red: 165 / 255, green: 148 / 255, blue: 249 / 255)
     
     @State private var subject: String = ""
+    @State private var score: String = ""
     
     var body: some View {
         
@@ -33,7 +34,7 @@ struct HomeScreen: View {
                         .font(.system(size: 24))
                         .padding()
                     
-                    Text("Take a break recharge every now and then!")
+                    Text("Take a break to recharge every now and then!")
                         .font(.system(size: 18))
                         .padding()
                 }
@@ -110,7 +111,7 @@ struct HomeScreen: View {
                                 .foregroundColor(Color_cdc1ff)
                                 .cornerRadius(15)
                             
-                            TextField("Score" , text : $subject)
+                            TextField("Score" , text : $score)
                                 .frame(width: 300, height: 49)
                                 .foregroundColor(Color.black)
                                 .font(Font.system(size: 24, design: .default))

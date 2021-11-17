@@ -8,35 +8,49 @@
 import SwiftUI
 
 struct TestScores: View {
-    var assessment = [Assessment(name: "Assessment 1"),
-                      Assessment(name: "Assessment 2")]
+    @State var assessments = [
+        Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2),
+        Assessment(name: "Assessment 2", totalScore: 91, numberOfSubjects: 10)]
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(assessment) { assessment in
+                ForEach(assessments) { assessment in
+                    let assessmentIndex = assessments.firstIndex(of: assessment)!
                     VStack(alignment: .leading) {
-                        NavigationLink(destination: SubjectDetailView(assessment: assessment)) {
-                            HStack {
-                                HStack (alignment: .top){
-                                    Text( assessment.name)
-                                        .bold()
+                        NavigationLink(destination: SubjectDetailView(assessment: $assessments[assessmentIndex])) {
+                            VStack {
+                                HStack {
+                                    HStack (alignment: .top){
+                                        Text( assessment.name)
+                                            .bold()
+                                    }
+                                    Spacer()
+                                    HStack (alignment: .bottom) {
+                                        Text("\(Int(assessment.totalScore))%")
+                                    }
                                 }
-                                Spacer()
-                                HStack (alignment: .bottom) {
-                                    Text("69%")
-                                }
+                                ProgressView(value: assessment.totalScore, total: 100)
                             }
-                            
                         }
                         
                     }
                     
-                } .listRowBackground(listItemColor)
+                }
+                .onDelete(perform: { offsets in
+                    assessments.remove(atOffsets: offsets)
+                })
+                .onMove { source, destination in
+                    assessments.move(fromOffsets: source, toOffset: destination)
+                }
+                .listRowBackground(listItemColor)
                 
                 .padding()
                 
-            } .navigationTitle("Assessments")
+            }
+            .navigationTitle("Assessments")
+            .navigationBarItems(trailing: EditButton())
         }
     }
 }
@@ -46,3 +60,4 @@ struct TestScores_Previews: PreviewProvider {
         TestScores()
     }
 }
+

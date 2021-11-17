@@ -27,11 +27,15 @@ struct GoalsScreen: View {
                         }
                         Spacer()
                         HStack (alignment: .bottom) {
-                        Circle()
-                            .frame(width: 28, height: 18)
-                            .foregroundColor(circleColor)
+                            Circle()
+                                .frame(width: 28, height: 18)
+                                .foregroundColor(circleColor)
                         }
                         
+                        Spacer()
+                        HStack (alignment: .bottom) {
+                            Text("69%")
+                        }
                         
                     }
                     
@@ -40,23 +44,16 @@ struct GoalsScreen: View {
             } .listRowBackground(listItemColor)
             
                 .padding()
-                                }
-                                Spacer()
-                                HStack (alignment: .bottom) {
-                                    Text("69%")
-                                }
-                    
-    .listRowBackground(listItemColor)
-                
-                .padding()
-                
-                .navigationTitle("Assessments")
+        }
+        
+        
+        .navigationTitle("Assessments")
     }
 }
 struct GoalsScreen_Previews: PreviewProvider {
     static var previews: some View {
         GoalsScreen()
     }
-  }
+}
 
 

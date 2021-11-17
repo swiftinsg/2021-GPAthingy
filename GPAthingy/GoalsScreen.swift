@@ -31,12 +31,7 @@ struct GoalsScreen: View {
                                 .frame(width: 28, height: 18)
                                 .foregroundColor(circleColor)
                         }
-                        
-                        Spacer()
-                        HStack (alignment: .bottom) {
-                            Text("69%")
-                        }
-                        
+                    
                     }
                     
                 }

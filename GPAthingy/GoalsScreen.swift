@@ -42,9 +42,9 @@ struct GoalsScreen: View {
                 .padding()
             
             List {
-                ForEach(todo) { todo in
+                ForEach($todo) { $todo in
                     VStack(alignment: .leading) {
-                        NavigationLink(destination: SubjectDetailView(todo: todo)) {
+                        NavigationLink(destination: SubjectDetailView($todo:todo)) {
                             HStack {
                                 HStack (alignment: .top){
                                     Text( todo.name)

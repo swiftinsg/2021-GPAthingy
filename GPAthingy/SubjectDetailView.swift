@@ -10,7 +10,7 @@ struct SubjectDetailView: View {
     
     @Binding var assessment: Assessment;
     
-    @Binding var subjects = [Subject(name: "Math", score: 50),
+    @State var subjects = [Subject(name: "Math", score: 50),
                            Subject(name: "English", score: 69)]
     @State var isSheetPresented = false
     

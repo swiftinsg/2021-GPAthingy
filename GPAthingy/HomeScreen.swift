@@ -40,6 +40,26 @@ struct HomeScreen: View {
                 }
                 .padding(.top, 40)
                 
+                VStack(alignment: .leading) {
+                    HStack {
+                        
+                        Image(systemName: "lightbulb.fill")
+                            .foregroundColor(Color_A594F9)
+                        
+                        Text("GPA Calculator")
+                            .bold()
+                            .padding()
+                        
+                    }
+                    NavigationLink(destination: TestScores()) {
+                        Text("Select Test")
+                    }
+                
+                    TextField("Subject", text: $subject)
+                    
+                    TextField("Score", text: $score)
+                        .keyboardType(.decimalPad)
+                }
                 
                 ZStack {
                     ZStack {
@@ -58,7 +78,7 @@ struct HomeScreen: View {
                                 .padding()
                             
                         }
-                        .offset(x : -100, y: -183)
+                        
                         .padding()
                     }
                     
@@ -154,7 +174,7 @@ struct HomeScreen: View {
                 
                 Spacer()
             }
-            .edgesIgnoringSafeArea(.all)
+            
             
         }
         

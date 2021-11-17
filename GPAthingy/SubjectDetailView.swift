@@ -49,7 +49,15 @@ struct SubjectDetailView: View {
             .padding()
         }
         .navigationTitle("Subjects")
-        .navigationBarItems(leading: Button(action: {
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button { } label: {Image(systemName: "plus")}
+                EditButton()
+            }
+        }
+            
+        
+        /* .navigationBarItems(leading: Button(action: {
             
             isSheetPresented = true
             
@@ -58,7 +66,7 @@ struct SubjectDetailView: View {
         }),
                             
                             trailing: EditButton()
-        )
+        )*/
         /*.sheet(isPresented: $isSheetPresented) {
          NewAssessmentView(subjects: $subjects)
          }*/

@@ -41,13 +41,38 @@ struct GoalsScreen: View {
             
                 .padding()
             
+            List {
+                ForEach(todo) { todo in
+                    VStack(alignment: .leading) {
+                        NavigationLink(destination: SubjectDetailView(todo: todo)) {
+                            HStack {
+                                HStack (alignment: .top){
+                                    Text( todo.name)
+                                        .bold()
+                                }
+                                Spacer()
+                                HStack (alignment: .bottom) {
+                                    Text("69%")
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                } .listRowBackground(listItemColor)
+                
+                .padding()
+                
+            } .navigationTitle("Assessments")
         }
     }
-//    
-    struct GoalsScreen_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+}
+
+struct GoalsScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        GoalsScreen()
     }
- }
+  }
+
 

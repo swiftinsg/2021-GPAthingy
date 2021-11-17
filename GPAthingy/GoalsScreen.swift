@@ -40,35 +40,19 @@ struct GoalsScreen: View {
             } .listRowBackground(listItemColor)
             
                 .padding()
-            
-            List {
-                ForEach($todo) { $todo in
-                    VStack(alignment: .leading) {
-                        NavigationLink(destination: SubjectDetailView($todo:todo)) {
-                            HStack {
-                                HStack (alignment: .top){
-                                    Text( todo.name)
-                                        .bold()
                                 }
                                 Spacer()
                                 HStack (alignment: .bottom) {
                                     Text("69%")
                                 }
-                            }
-                            
-                        }
-                        
-                    }
                     
-                } .listRowBackground(listItemColor)
+    .listRowBackground(listItemColor)
                 
                 .padding()
                 
-            } .navigationTitle("Assessments")
-        }
+                .navigationTitle("Assessments")
     }
 }
-
 struct GoalsScreen_Previews: PreviewProvider {
     static var previews: some View {
         GoalsScreen()

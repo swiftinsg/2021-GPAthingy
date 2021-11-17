@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		348F4A112744E294003F0C3D /* TestScoreViewThing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348F4A102744E293003F0C3D /* TestScoreViewThing.swift */; };
 		920EA31627434BD10092D157 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920EA31527434BD10092D157 /* ToDo.swift */; };
 		99092AE7274431E300E48CC0 /* NewAssessmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99092AE6274431E200E48CC0 /* NewAssessmentView.swift */; };
 		9988324E27422A140000AAED /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9988324D27422A140000AAED /* Assessment.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		348F4A102744E293003F0C3D /* TestScoreViewThing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScoreViewThing.swift; sourceTree = "<group>"; };
 		920EA31527434BD10092D157 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		99092AE6274431E200E48CC0 /* NewAssessmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAssessmentView.swift; sourceTree = "<group>"; };
 		9988324D27422A140000AAED /* Assessment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessment.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				99B748E92742165700960479 /* HomeScreen.swift */,
 				99B748EC2742165800960479 /* ProgressScreen.swift */,
 				99B748EB2742165800960479 /* TestScores.swift */,
+				348F4A102744E293003F0C3D /* TestScoreViewThing.swift */,
 				99B8897D27437468008C9AA6 /* Subject.swift */,
 				99B8897A27436F40008C9AA6 /* SubjectDetailView.swift */,
 				99B889802743751F008C9AA6 /* ActualSubjectDetailView.swift */,
@@ -177,6 +180,7 @@
 				920EA31627434BD10092D157 /* ToDo.swift in Sources */,
 				99B748ED2742165800960479 /* HomeScreen.swift in Sources */,
 				99B8897E27437468008C9AA6 /* Subject.swift in Sources */,
+				348F4A112744E294003F0C3D /* TestScoreViewThing.swift in Sources */,
 				99B748F02742165800960479 /* ProgressScreen.swift in Sources */,
 				99B748EF2742165800960479 /* TestScores.swift in Sources */,
 				9988324E27422A140000AAED /* Assessment.swift in Sources */,

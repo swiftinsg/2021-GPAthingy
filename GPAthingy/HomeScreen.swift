@@ -22,12 +22,8 @@ struct HomeScreen: View {
     @State private var score: String = ""
     
     var body: some View {
-        
-        
         NavigationView {
-            
-            VStack {
-                
+            VStack(alignment: .leading) {
                 VStack {
                     Text("Welcome back")
                         .bold()
@@ -38,149 +34,62 @@ struct HomeScreen: View {
                         .font(.system(size: 18))
                         .padding()
                 }
-                .padding(.top, 40)
                 
                 VStack(alignment: .leading) {
                     HStack {
-                        
                         Image(systemName: "lightbulb.fill")
                             .foregroundColor(Color_A594F9)
                         
                         Text("GPA Calculator")
                             .bold()
                             .padding()
-                        
                     }
+                    
                     NavigationLink(destination: TestScores()) {
                         Text("Select Test")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding()
+                            .background(Color_cdc1ff)
+                            .cornerRadius(16)
+                            .foregroundColor(.black)
                     }
-                
+                    
                     TextField("Subject", text: $subject)
+                        .padding()
+                        .background(Color_cdc1ff)
+                        .cornerRadius(16)
                     
                     TextField("Score", text: $score)
                         .keyboardType(.decimalPad)
-                }
-                
-                ZStack {
-                    ZStack {
-                        Rectangle()
-                            .frame(width: 400, height: 410)
-                            .cornerRadius(20)
-                        .foregroundColor(Color_F5EFFF)
-                        
-                        HStack {
-                            
-                            Image(systemName: "lightbulb.fill")
-                                .foregroundColor(Color_A594F9)
-                            
-                            Text("GPA Calculator")
-                                .bold()
-                                .padding()
-                            
-                        }
-                        
                         .padding()
-                    }
+                        .background(Color_cdc1ff)
+                        .cornerRadius(16)
                     
-                    
-                    
-                    VStack {
+                    Button {
                         
-                        NavigationLink(destination : TestScores()) {
-                            
-                            ZStack {
-                                
-                                Rectangle()
-                                    .frame(width: 354, height: 49)
-                                    .foregroundColor(Color_cdc1ff)
-                                    .cornerRadius(15)
-                                
-                                HStack {
-                                    Text("Select Test")
-                                        .font(.system(size: 24))
-                                        .foregroundColor(Color.black)
-                                        .padding(2)
-                                        .offset(x : -100)
-                                    
-                                }
-                            }
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("Calculate")
+                            Spacer()
                         }
-                        
-                        
-                        
-                        ZStack {
-                            
-                            Rectangle()
-                                .frame(width: 354, height: 49)
-                                .foregroundColor(Color_cdc1ff)
-                                .cornerRadius(15)
-                            
-                            TextField("Subject" , text : $subject)
-                                .frame(width: 300, height: 49)
-                                .foregroundColor(Color.black)
-                                .font(Font.system(size: 24, design: .default))
-                                .multilineTextAlignment(.leading)
-                                .padding(2)
-                            
-                            
-                        }
-                        
-                        ZStack {
-                            
-                            Button {
-                                
-                            } label: {
-                                HStack {
-                                    Spacer()
-                                    Text("Calculate")
-                                    Spacer()
-                                }
-                                .font(.system(size: 22, weight: .bold))
-                                .foregroundColor(Color.white)
-                                .padding()
-                                .background(Color_7371fc)
-                                .cornerRadius(15)
-                                
-                            } .padding()
-                                .padding()
-                            
-                        
-                                    
-                                    
-                                Spacer()
-                            }
-                            .padding()
-                        }
-                        
-                        Button {
-                            
-                        } label: {
-                            HStack {
-                                Spacer()
-                                Text("Score")
-                                Spacer()
-                            }
-                            .font(.system(size: 22, weight: .bold))
-                            .foregroundColor(Color.white)
-                            .padding()
-                            .background(Color_cdc1ff)
-                            .cornerRadius(15)
-                            
-                        } .padding()
-                        
-                        
+                        .font(.system(size: 22, weight: .bold))
+                        .foregroundColor(Color.white)
+                        .padding()
+                        .background(Color_7371fc)
+                        .cornerRadius(15)
                     }
                 }
-                
-                Spacer()
+                .padding()
+                .background(Color_F5EFFF)
+                .cornerRadius(20)
+                .padding()
             }
-            
-            
         }
-        
     }
-    
-    
+}
+
+
 
 
 struct HomeScreen_Previews: PreviewProvider {

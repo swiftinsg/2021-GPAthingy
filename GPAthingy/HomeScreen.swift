@@ -55,6 +55,7 @@ struct HomeScreen: View {
                             
                             Text("GPA Calculator")
                                 .bold()
+                                .padding()
                             
                         }
                         .offset(x : -100, y: -183)
@@ -106,29 +107,41 @@ struct HomeScreen: View {
                         
                         ZStack {
                             
-                            Rectangle()
-                                .frame(width: 354, height: 49)
-                                .foregroundColor(Color_cdc1ff)
-                                .cornerRadius(15)
+                           
                             
-                            TextField("Score" , text : $score)
-                                .frame(width: 300, height: 49)
-                                .foregroundColor(Color.black)
-                                .font(Font.system(size: 24, design: .default))
-                                .multilineTextAlignment(.leading)
-                                .padding(3)
-                            
-                            
+                            HStack{
+                                Spacer()
+                                TextField("Score" , text : $score)
+                                    .padding()
+                                    .background(Color_cdc1ff)
+                                    .cornerRadius(15)
+                                    .foregroundColor(Color.black)
+                                    .font(Font.system(size: 24, design: .default))
+                                    .multilineTextAlignment(.leading)
+                                    
+                                    
+                                Spacer()
+                            }
+                            .padding()
                         }
                         
-                        Button ("Calculate") {
-                        }
-                        .frame(width: 354, height: 49)
-                        .font(.system(size: 22, weight: .bold))
-                        .foregroundColor(Color.white)
-                        .background(Color_7371fc)
-                        .cornerRadius(15)
-                        .padding(50)
+                        Button {
+                            
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("Calculate")
+                                Spacer()
+                            }
+                            .font(.system(size: 22, weight: .bold))
+                            .foregroundColor(Color.white)
+                            .padding()
+                            .background(Color_7371fc)
+                            .cornerRadius(15)
+                            
+                        } .padding()
+                            .padding()
+                        
                     }
                 }
                 

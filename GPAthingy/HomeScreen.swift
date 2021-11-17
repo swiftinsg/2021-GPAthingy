@@ -107,17 +107,24 @@ struct HomeScreen: View {
                         
                         ZStack {
                             
-                           
+                            Button {
+                                
+                            } label: {
+                                HStack {
+                                    Spacer()
+                                    Text("Calculate")
+                                    Spacer()
+                                }
+                                .font(.system(size: 22, weight: .bold))
+                                .foregroundColor(Color.white)
+                                .padding()
+                                .background(Color_7371fc)
+                                .cornerRadius(15)
+                                
+                            } .padding()
+                                .padding()
                             
-                            HStack{
-                                Spacer()
-                                TextField("Score" , text : $score)
-                                    .padding()
-                                    .background(Color_cdc1ff)
-                                    .cornerRadius(15)
-                                    .foregroundColor(Color.black)
-                                    .font(Font.system(size: 24, design: .default))
-                                    .multilineTextAlignment(.leading)
+                        
                                     
                                     
                                 Spacer()
@@ -130,17 +137,17 @@ struct HomeScreen: View {
                         } label: {
                             HStack {
                                 Spacer()
-                                Text("Calculate")
+                                Text("Score")
                                 Spacer()
                             }
                             .font(.system(size: 22, weight: .bold))
                             .foregroundColor(Color.white)
                             .padding()
-                            .background(Color_7371fc)
+                            .background(Color_cdc1ff)
                             .cornerRadius(15)
                             
                         } .padding()
-                            .padding()
+                        
                         
                     }
                 }
@@ -154,7 +161,7 @@ struct HomeScreen: View {
     }
     
     
-}
+
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {

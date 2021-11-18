@@ -20,53 +20,57 @@ struct GoalsScreen: View {
     
     var body: some View {
         
-        List {
-            ForEach(todos) { todo in
-                let todoIndex = todos.firstIndex(of: todo)!
-                VStack(alignment: .leading) {
-                    NavigationLink(destination: GoalDetailView(todo: $todos[todoIndex])) {
-                        VStack {
-                            HStack {
-                                Text( todo.title)
-                                    .bold()
-                                Spacer()
-                                HStack (alignment: .bottom) {
-                                    if todo.priority == "CircleColorRed" {
-                                        Image(systemName: "circle.fill").foregroundColor(CircleColorRed)
-                                    }
-                                    else if todo.priority == "CircleColorYellow" {
-                                        Image(systemName: "circle.fill").foregroundColor(CircleColorYellow)
-                                    }
-                                    else if todo.priority == "CircleColorGreen" {
-                                        Image(systemName: "circle.fill").foregroundColor(CircleColorGreen)
-                                        
+        NavigationView {
+            List {
+                ForEach(todos) { todo in
+                    let todoIndex = todos.firstIndex(of: todo)!
+                    VStack(alignment: .leading) {
+                        NavigationLink(destination: GoalDetailView(todo: $todos[todoIndex])) {
+                            VStack {
+                                HStack {
+                                    Text( todo.title)
+                                        .bold()
+                                    Spacer()
+                                    HStack (alignment: .bottom) {
+                                        if todo.priority == "CircleColorRed" {
+                                            Image(systemName: "circle.fill").foregroundColor(CircleColorRed)
+                                        }
+                                        else if todo.priority == "CircleColorYellow" {
+                                            Image(systemName: "circle.fill").foregroundColor(CircleColorYellow)
+                                        }
+                                        else if todo.priority == "CircleColorGreen" {
+                                            Image(systemName: "circle.fill").foregroundColor(CircleColorGreen)
+                                            
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
-                
-            }
-            .onDelete(perform: { offsets in
-                todos.remove(atOffsets: offsets)
-            })
-            .onMove { source, destination in
-                todos.move(fromOffsets: source, toOffset: destination)
-            }
-        }
-        .navigationTitle("Goals")
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton()
-            }
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
                     
-                } label: {
-                    Image(systemName: "plus")
                 }
+                .onDelete(perform: { offsets in
+                    todos.remove(atOffsets: offsets)
+                })
+                .onMove { source, destination in
+                    todos.move(fromOffsets: source, toOffset: destination)
+                }
+                .listRowBackground(listItemColor)
+                .padding()
             }
+            .navigationTitle("Goals")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+        }
         }
     }
 }

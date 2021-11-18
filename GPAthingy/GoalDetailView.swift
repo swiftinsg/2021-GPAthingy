@@ -23,7 +23,7 @@ struct GoalDetailView: View {
                     
                     } label: {
                         Image(systemName: "circle.fill")
-                            .foregroundColor(circleColor)
+                            .foregroundColor(CircleColorRed)
                 }
             
                     Button{
@@ -48,6 +48,6 @@ struct GoalDetailView: View {
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View{
-        GoalDetailView(ToDo: .constant(ToDo(title: "ignore yi kai", priority: .high)))
+        GoalDetailView(todo: .constant(ToDo(title: "ignore yi kai", priority: .high)))
     }
 }

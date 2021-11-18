@@ -10,6 +10,7 @@ import SwiftUI
 let tabBarSelectedAccent = Color(red: 134 / 255, green: 125 / 255, blue: 254 / 255)
 
 struct ContentView: View {
+    @Binding var assessments: [Assessment]
     var body: some View {
         TabView {
             HomeScreen()
@@ -17,7 +18,7 @@ struct ContentView: View {
                     Label("Home", systemImage: "house.fill")
                 }
             NavigationView {
-                TestScores()
+                TestScores(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]))
 
             }
             .tabItem {
@@ -42,7 +43,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]))
         
     }
 }

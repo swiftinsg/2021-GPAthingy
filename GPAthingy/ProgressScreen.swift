@@ -22,20 +22,17 @@ struct ProgressScreen: View {
     @State var subjects: [Subject] = [Subject(name: "Math", score: 50),
                            Subject(name: "English", score: 69)]
     var body: some View {
-        List {
-            ForEach(subjects) {subject in
-                Text("\(subject.name)")
+        NavigationView {
+            List {
+                ForEach(subjects) {subject in
+                    Text("\(subject.name)")
+                }
             }
         }
+        .navigationTitle("Progress")
     }
-    
+        
 }
-
-
-
-
-
-
 
 struct ProgressScreen_Previews: PreviewProvider {
     static var previews: some View {

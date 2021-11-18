@@ -18,6 +18,7 @@ struct ContentView: View {
                 }
             NavigationView {
                 TestScores()
+
             }
             .tabItem {
                 Label("Test Scores", systemImage: "graduationcap.fill")

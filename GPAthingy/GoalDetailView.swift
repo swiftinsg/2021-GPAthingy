@@ -14,7 +14,7 @@ struct GoalDetailView: View {
     var body: some View {
         Form {
             Section(header: Text("goal title")) {
-                TextField("Whats your goal?", text: $ToDo.title)
+                TextField("Whats your goal?", text: $todo.title)
             }
             
             Section(header: Text("priority")) {

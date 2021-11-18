@@ -8,10 +8,11 @@ import SwiftUI
 
 struct SubjectDetailView: View {
     
+    @State var subjects: [Subject] = [Subject(name: "Math", score: 50),
+                           Subject(name: "English", score: 69)]
+    
     @Binding var assessment: Assessment;
     
-    @State var subjects = [Subject(name: "Math", score: 50),
-                           Subject(name: "English", score: 69)]
     @State var isSheetPresented = false
     
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)

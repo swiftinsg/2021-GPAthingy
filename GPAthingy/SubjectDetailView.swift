@@ -8,8 +8,8 @@ import SwiftUI
 
 struct SubjectDetailView: View {
     
-    @State var subjects: [Subject] = [Subject(name: "Math", score: 50),
-                           Subject(name: "English", score: 69)]
+    @State var subjects: [Subject] = [Subject(name: "Math", score: 50, totalScore: 100),
+                                      Subject(name: "English", score: 69, totalScore: 70)]
     
     @Binding var assessment: Assessment;
     
@@ -30,10 +30,10 @@ struct SubjectDetailView: View {
                                 }
                                 Spacer()
                                 HStack (alignment: .bottom) {
-                                    Text("\(Int(subject.score))%")
+                                    Text("\(Int(subject.score / subject.totalScore))%")
                                 }
                             }
-                            ProgressView(value: subject.score, total: 100)
+                            ProgressView(value: subject.score / subject.totalScore, total: 100)
                         }
                         
                     }

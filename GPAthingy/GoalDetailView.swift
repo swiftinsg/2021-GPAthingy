@@ -26,21 +26,48 @@ struct GoalDetailView: View {
                     Button{
                         todo.priority = "CircleColorRed"
                     } label: {
-                        Image(systemName: "circle.fill")
-                            .foregroundColor(CircleColorRed)
+                        if todo.priority == "CircleColorRed" {
+                            Circle()
+                                .strokeBorder(Color.gray, lineWidth: 2)
+                                .background(Circle().foregroundColor(CircleColorRed))
+                                .frame(width:16, height:16)
+                        }
+                        else {
+                            Circle()
+                                .foregroundColor(CircleColorRed)
+                                .frame(width:16, height:16)
+                        }
                 }
             
                     Button{
                         todo.priority = "CircleColorYellow"
                     } label: {
-                        Image(systemName: "circle.fill")
-                            .foregroundColor(CircleColorYellow)
+                        if todo.priority == "CircleColorYellow" {
+                            Circle()
+                                .strokeBorder(Color.gray, lineWidth: 2)
+                                .background(Circle().foregroundColor(CircleColorYellow))
+                                .frame(width:16, height:16)
+                        }
+                        else {
+                            Circle()
+                                .foregroundColor(CircleColorYellow)
+                                .frame(width:16, height:16)
+                        }
                 }
                     Button{
                         todo.priority = "CircleColorGreen"
                     } label: {
-                        Image(systemName: "circle.fill")
-                            .foregroundColor(CircleColorGreen)
+                        if todo.priority == "CircleColorGreen" {
+                            Circle()
+                                .strokeBorder(Color.gray, lineWidth: 2)
+                                .background(Circle().foregroundColor(CircleColorGreen))
+                                .frame(width:16, height:16)
+                        }
+                        else {
+                            Circle()
+                                .foregroundColor(CircleColorGreen)
+                                .frame(width:16, height:16)
+                        }
                     }
                 }
             } .buttonStyle(.plain)

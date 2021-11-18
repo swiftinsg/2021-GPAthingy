@@ -19,4 +19,16 @@ class AssessmentsData: ObservableObject {
         return documentsDirectory.appendingPathComponent(plistName)
     }
     
+    func save() {
+        let archiveURL = getArchiveURL()
+        let propertyListEncoder = PropertyListEncoder()
+        let encodedAssessments = try? propertyListEncoder.encode(assessments)
+        try? encodedAssessments?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
+    func load() {
+        let archiveURL = getArchiveURL()
+        let propertyListDecoder = PropertyListDecoder()
+        var finalAssessments: [Assessment]!
+    }
 }

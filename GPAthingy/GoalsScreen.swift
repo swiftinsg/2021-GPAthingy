@@ -27,10 +27,9 @@ struct GoalsScreen: View {
                     NavigationLink(destination: GoalDetailView(todo: $todos[todoIndex])) {
                         VStack {
                             HStack {
-                                HStack (alignment: .top){
-                                    Text( todo.title)
-                                        .bold()
-                                }
+                                Text( todo.title)
+                                    .bold()
+                                Spacer()
                                 HStack (alignment: .bottom) {
                                     if todo.priority == "CircleColorRed" {
                                         Image(systemName: "circle.fill").foregroundColor(CircleColorRed)
@@ -40,10 +39,9 @@ struct GoalsScreen: View {
                                     }
                                     else if todo.priority == "CircleColorGreen" {
                                         Image(systemName: "circle.fill").foregroundColor(CircleColorGreen)
+                                        
                                     }
-                                    
                                 }
-                                
                             }
                         }
                     }

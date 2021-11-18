@@ -15,7 +15,7 @@ class AssessmentsData: ObservableObject {
     func getArchiveURL() -> URL {
         let plistName = "assessments.plist"
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    
+        
         return documentsDirectory.appendingPathComponent(plistName)
     }
     
@@ -30,5 +30,10 @@ class AssessmentsData: ObservableObject {
         let archiveURL = getArchiveURL()
         let propertyListDecoder = PropertyListDecoder()
         var finalAssessments: [Assessment]!
+        
+        if let retrievedAssessmentsData = try? Data(contentsOf: archiveURL),
+           let decodedAssessments = try? propertyListDecoder.decode(Array<Assessment>.self, from: retrievedAssessmentsData) {
+            finalAssessments = decodedAssessments
+        }
     }
 }

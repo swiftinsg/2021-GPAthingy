@@ -69,7 +69,7 @@ struct ActualSubjectDetailView: View {
                     .padding()
                     .background(Color_F5EFFF)
                     .cornerRadius(15)
-                    
+                
             }
             
             VStack(alignment: .leading) {
@@ -89,19 +89,6 @@ struct ActualSubjectDetailView: View {
             
             Spacer()
             
-            Button {
-                
-            } label: {
-                Spacer()
-                Text("Save")
-                Spacer()
-            }
-            .font(.system(size: 22, weight: .bold))
-            .foregroundColor(Color.white)
-            .padding()
-            .background(Color_7371fc)
-            .cornerRadius(15)
-            .padding(.horizontal)
             
             Button {
                 

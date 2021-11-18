@@ -24,9 +24,9 @@ struct GoalDetailView: View {
             Section(header: Text("priority")) {
                 HStack {
                     Button{
-                        todo.priority = "CircleColorRed"
+                        todo.priority = .high
                     } label: {
-                        if todo.priority == "CircleColorRed" {
+                        if todo.priority == .high {
                             Circle()
                                 .strokeBorder(Color.gray, lineWidth: 2)
                                 .background(Circle().foregroundColor(CircleColorRed))
@@ -40,9 +40,9 @@ struct GoalDetailView: View {
                 }
             
                     Button{
-                        todo.priority = "CircleColorYellow"
+                        todo.priority = .mid
                     } label: {
-                        if todo.priority == "CircleColorYellow" {
+                        if todo.priority == .mid {
                             Circle()
                                 .strokeBorder(Color.gray, lineWidth: 2)
                                 .background(Circle().foregroundColor(CircleColorYellow))
@@ -55,9 +55,9 @@ struct GoalDetailView: View {
                         }
                 }
                     Button{
-                        todo.priority = "CircleColorGreen"
+                        todo.priority = .low
                     } label: {
-                        if todo.priority == "CircleColorGreen" {
+                        if todo.priority == .low {
                             Circle()
                                 .strokeBorder(Color.gray, lineWidth: 2)
                                 .background(Circle().foregroundColor(CircleColorGreen))
@@ -78,6 +78,6 @@ struct GoalDetailView: View {
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View{
-        GoalDetailView(todo: .constant(ToDo(title: "ignore yi kai", priority: "CircleColorGreen")))
+        GoalDetailView(todo: .constant(ToDo(title: "ignore yi kai", priority: .low)))
     }
 }

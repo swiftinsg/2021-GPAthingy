@@ -15,7 +15,7 @@ struct GoalsScreen: View {
     let CircleColorYellow = Color(red: 255 / 255, green: 198 / 255, blue: 0 / 255)
     var circleColor = Color.blue
     
-    @State var todos = [ToDo(title: "Potato",priority: "CircleColorRed"), ToDo(title: "respond to questions", priority: "CircleColorYellow"), ToDo(title: "ignore haters", priority: "CircleColorGreen")]
+    @State var todos = [ToDo(title: "Potato",priority: .high), ToDo(title: "respond to questions", priority: .mid), ToDo(title: "ignore haters", priority: .low)]
     
     
     var body: some View {
@@ -32,13 +32,13 @@ struct GoalsScreen: View {
                                         .bold()
                                     Spacer()
                                     HStack (alignment: .bottom) {
-                                        if todo.priority == "CircleColorRed" {
+                                        if todo.priority == .high {
                                             Image(systemName: "circle.fill").foregroundColor(CircleColorRed)
                                         }
-                                        else if todo.priority == "CircleColorYellow" {
+                                        else if todo.priority == .mid {
                                             Image(systemName: "circle.fill").foregroundColor(CircleColorYellow)
                                         }
-                                        else if todo.priority == "CircleColorGreen" {
+                                        else if todo.priority == .low {
                                             Image(systemName: "circle.fill").foregroundColor(CircleColorGreen)
                                             
                                         }

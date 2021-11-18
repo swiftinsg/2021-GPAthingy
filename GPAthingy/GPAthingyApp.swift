@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@main
 struct GPAthingyApp: App {
     
     @ObservedObject var assessmentsData = AssessmentsData()

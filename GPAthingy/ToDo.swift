@@ -8,8 +8,12 @@
 import SwiftUI
 import Foundation
 
+enum Priority: Codable {
+    case high, mid, low
+}
+
 struct ToDo: Identifiable, Equatable, Codable {
     var id = UUID()
     var title: String
-    var priority: String
+    var priority: Priority
 }

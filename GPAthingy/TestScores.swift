@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct TestScores: View {
-    @State var assessments = [
-        Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2),
-        Assessment(name: "Assessment 2", totalScore: 91, numberOfSubjects: 10)]
+    @Binding var assessments: [Assessment]
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     
     var body: some View {
@@ -61,7 +59,7 @@ struct TestScores: View {
 
 struct TestScores_Previews: PreviewProvider {
     static var previews: some View {
-        TestScores()
+        TestScores(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]))
     }
 }
 

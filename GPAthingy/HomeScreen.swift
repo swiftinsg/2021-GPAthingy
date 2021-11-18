@@ -82,6 +82,8 @@ struct HomeScreen: View {
                         .background(Color_7371fc)
                         .cornerRadius(15)
                     }
+                    GraphView()
+                        
                 }
                 .padding()
                 .background(Color_F5EFFF)

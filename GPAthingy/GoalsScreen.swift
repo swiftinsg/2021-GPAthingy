@@ -8,47 +8,54 @@
 import SwiftUI
 
 struct GoalsScreen: View {
-    
+        
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     let circleColor = Color(red: 255 / 255, green: 127 / 255, blue: 127 / 255)
+    let CircleColourGreen = Color(red: 184 / 255, green: 243 / 255, blue: 253 / 255)
+    let CircleColourYellow = Color(red: 255 / 255, green: 198 / 255, blue: 0 / 255)
     
-    var todo = [ToDo(name: "Read Math Textbook"),
-                ToDo(name: "Holiday Homework"),
-                ToDo(name: "Read Up On Thesis")]
+    @State var ToDo = [todo(title: "Potato",priority: .high), todo(title: "respond to questions", priority: .low), todo(title: "ignore haters", priority: .medium)]
     
     var body: some View {
         List {
-            ForEach(todo) { todo in
-                VStack(alignment: .leading) {
-                    HStack {
-                        HStack (alignment: .top){
-                            Text( todo.name)
-                                .bold()
-                        }
-                        Spacer()
-                        HStack (alignment: .bottom) {
-                            Circle()
-                                .frame(width: 28, height: 18)
-                                .foregroundColor(circleColor)
-                        }
-                    
+            ForEach($ToDo) { $ToDo in
+                HStack {
+                    Text(ToDo.title)
+                    Spacer()
+                    switch ToDo.priority {
+                    case .high: Image(systemName: "circle.fill").foregroundColor(circleColor)
+                    case .medium: Image(systemName: "circle.fill").foregroundColor(CircleColourYellow)
+                    case .low: Image(systemName: "circle.fill").foregroundColor(CircleColourGreen)
                     }
-                    
                 }
-                
-            } .listRowBackground(listItemColor)
-            
-                .padding()
+            }
+            .onDelete { index in
+                ToDo.remove(atOffsets: index)
+            }
+            .onMove {from, to in
+                ToDo.move(fromOffsets: from, toOffset: to)
+            }
         }
-        
-        
-        .navigationTitle("Assessments")
-    }
+        .navigationTitle("Goals")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                EditButton()
+            }
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "plus")
+           }
+        }
+      }
+   }
 }
+
 struct GoalsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GoalsScreen()
-    }
+        NavigationView {
+            GoalsScreen()
+        }
 }
-
-
+}

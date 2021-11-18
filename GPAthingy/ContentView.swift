@@ -18,6 +18,7 @@ struct ContentView: View {
                 }
             NavigationView {
                 TestScores()
+
             }
             .tabItem {
                 Label("Test Scores", systemImage: "graduationcap.fill")
@@ -42,5 +43,9 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        
     }
 }
+
+
+

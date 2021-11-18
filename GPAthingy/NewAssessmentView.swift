@@ -2,8 +2,10 @@
 //  NewAssessmentView.swift
 //  GPAthingy
 //
-//  Created by rgs on 17/11/21.
+//  Created by cpyoufy on 17/11/21.
 //
+
+// Actually NewSubjectView.swift
 
 import SwiftUI
 

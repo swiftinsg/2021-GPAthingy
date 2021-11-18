@@ -8,7 +8,8 @@
 import SwiftUI
 import Foundation
 
-struct ToDo: Identifiable {
+struct ToDo: Identifiable, Equatable, Codable {
     var id = UUID()
-    var name: String
+    var title: String
+    var priority: String
 }

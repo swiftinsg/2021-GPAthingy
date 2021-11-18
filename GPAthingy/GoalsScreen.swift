@@ -8,32 +8,53 @@
 import SwiftUI
 
 struct GoalsScreen: View {
-        
+    
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     let CircleColorRed = Color(red: 255 / 255, green: 127 / 255, blue: 127 / 255)
-    let CircleColourGreen = Color(red: 184 / 255, green: 243 / 255, blue: 253 / 255)
-    let CircleColourYellow = Color(red: 255 / 255, green: 198 / 255, blue: 0 / 255)
+    let CircleColorGreen = Color(red: 184 / 255, green: 243 / 255, blue: 213 / 255)
+    let CircleColorYellow = Color(red: 255 / 255, green: 198 / 255, blue: 0 / 255)
+    var circleColor = Color.blue
     
-    @State var ToDo = [ToDo(title: "Potato",priority: .high), ToDo(title: "respond to questions", priority: .low), ToDo(title: "ignore haters", priority: .medium)]
+    @State var todos = [ToDo(title: "Potato",priority: "CircleColorRed"), ToDo(title: "respond to questions", priority: "CircleColorYellow"), ToDo(title: "ignore haters", priority: "CircleColorGreen")]
+    
     
     var body: some View {
+        
         List {
-            ForEach($ToDo) { $ToDo in
-                HStack {
-                    Text(ToDo.title)
-                    Spacer()
-                    switch ToDo.priority {
-                    case .high: Image(systemName: "circle.fill").foregroundColor(CircleColorRed)
-                    case .medium: Image(systemName: "circle.fill").foregroundColor(CircleColourYellow)
-                    case .low: Image(systemName: "circle.fill").foregroundColor(CircleColourGreen)
+            ForEach(todos) { todo in
+                let todoIndex = todos.firstIndex(of: todo)!
+                VStack(alignment: .leading) {
+                    NavigationLink(destination: GoalDetailView(todo: $todos[todoIndex])) {
+                        VStack {
+                            HStack {
+                                HStack (alignment: .top){
+                                    Text( todo.title)
+                                        .bold()
+                                }
+                                HStack (alignment: .bottom) {
+                                    if todo.priority == "CircleColorRed" {
+                                        Image(systemName: "circle.fill").foregroundColor(CircleColorRed)
+                                    }
+                                    else if todo.priority == "CircleColorYellow" {
+                                        Image(systemName: "circle.fill").foregroundColor(CircleColorYellow)
+                                    }
+                                    else if todo.priority == "CircleColorGreen" {
+                                        Image(systemName: "circle.fill").foregroundColor(CircleColorGreen)
+                                    }
+                                    
+                                }
+                                
+                            }
+                        }
                     }
                 }
+                
             }
-            .onDelete { index in
-                ToDo.remove(atOffsets: index)
-            }
-            .onMove {from, to in
-                ToDo.move(fromOffsets: from, toOffset: to)
+            .onDelete(perform: { offsets in
+                todos.remove(atOffsets: offsets)
+            })
+            .onMove { source, destination in
+                todos.move(fromOffsets: source, toOffset: destination)
             }
         }
         .navigationTitle("Goals")
@@ -46,10 +67,10 @@ struct GoalsScreen: View {
                     
                 } label: {
                     Image(systemName: "plus")
-           }
+                }
+            }
         }
-      }
-   }
+    }
 }
 
 struct GoalsScreen_Previews: PreviewProvider {
@@ -57,5 +78,5 @@ struct GoalsScreen_Previews: PreviewProvider {
         NavigationView {
             GoalsScreen()
         }
-}
+    }
 }

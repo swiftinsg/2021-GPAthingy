@@ -24,16 +24,18 @@ struct HomeScreen: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                VStack {
+                VStack(alignment: .center) {
                     Text("Welcome back")
                         .bold()
                         .font(.system(size: 24))
-                        .padding()
+                        .padding(.horizontal)
                     
                     Text("Take a break to recharge every now and then!")
                         .font(.system(size: 18))
-                        .padding()
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
                 }
+                .frame(maxWidth: .infinity)
                 
                 VStack(alignment: .leading) {
                     HStack {
@@ -84,7 +86,9 @@ struct HomeScreen: View {
                 .background(Color_F5EFFF)
                 .cornerRadius(20)
                 .padding()
+                Spacer()
             }
+            .navigationBarHidden(true)
         }
     }
 }

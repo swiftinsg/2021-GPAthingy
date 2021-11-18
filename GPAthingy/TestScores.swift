@@ -14,45 +14,44 @@ struct TestScores: View {
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(assessments) { assessment in
-                    let assessmentIndex = assessments.firstIndex(of: assessment)!
-                    VStack(alignment: .leading) {
-                        NavigationLink(destination: SubjectDetailView(assessment: $assessments[assessmentIndex])) {
-                            VStack {
-                                HStack {
-                                    HStack (alignment: .top){
-                                        Text( assessment.name)
-                                            .bold()
-                                    }
-                                    Spacer()
-                                    HStack (alignment: .bottom) {
-                                        Text("\(Int(assessment.totalScore))%")
-                                    }
+        List {
+            ForEach(assessments) { assessment in
+                let assessmentIndex = assessments.firstIndex(of: assessment)!
+                VStack(alignment: .leading) {
+                    NavigationLink(destination: SubjectDetailView(assessment: $assessments[assessmentIndex])) {
+                        VStack {
+                            HStack {
+                                HStack (alignment: .top){
+                                    Text( assessment.name)
+                                        .bold()
                                 }
-                                ProgressView(value: assessment.totalScore, total: 100)
+                                Spacer()
+                                HStack (alignment: .bottom) {
+                                    Text("\(Int(assessment.totalScore))%")
+                                }
                             }
+                            ProgressView(value: assessment.totalScore, total: 100)
                         }
-                        
                     }
                     
                 }
-                .onDelete(perform: { offsets in
-                    assessments.remove(atOffsets: offsets)
-                })
-                .onMove { source, destination in
-                    assessments.move(fromOffsets: source, toOffset: destination)
-                }
-                .listRowBackground(listItemColor)
-                
-                .padding()
                 
             }
-            .navigationTitle("Assessments")
-            .navigationBarItems(trailing: EditButton())
+            .onDelete(perform: { offsets in
+                assessments.remove(atOffsets: offsets)
+            })
+            .onMove { source, destination in
+                assessments.move(fromOffsets: source, toOffset: destination)
+            }
+            .listRowBackground(listItemColor)
+            
+            .padding()
+            
         }
+        .navigationTitle("Assessments")
+        .navigationBarItems(trailing: EditButton())
     }
+    
 }
 
 struct TestScores_Previews: PreviewProvider {

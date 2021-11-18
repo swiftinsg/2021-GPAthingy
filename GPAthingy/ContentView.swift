@@ -16,10 +16,13 @@ struct ContentView: View {
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
-            TestScores()
-                .tabItem {
-                    Label("Test Scores", systemImage: "graduationcap.fill")
-                }
+            NavigationView {
+                TestScores()
+            }
+            .tabItem {
+                Label("Test Scores", systemImage: "graduationcap.fill")
+            }
+            
             GoalsScreen()
                 .tabItem {
                     Label("Goals", systemImage: "paperplane.fill")

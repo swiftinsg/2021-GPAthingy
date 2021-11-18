@@ -25,6 +25,7 @@ struct HomeScreen: View {
         NavigationView {
             VStack(alignment: .leading) {
                 VStack(alignment: .center) {
+                    
                     Text("Welcome back")
                         .bold()
                         .font(.system(size: 24))
@@ -81,6 +82,8 @@ struct HomeScreen: View {
                         .background(Color_7371fc)
                         .cornerRadius(15)
                     }
+                    GraphView()
+                        
                 }
                 .padding()
                 .background(Color_F5EFFF)
@@ -89,6 +92,7 @@ struct HomeScreen: View {
                 Spacer()
             }
             .navigationBarHidden(true)
+            .padding()
         }
     }
 }

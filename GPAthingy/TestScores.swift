@@ -49,7 +49,12 @@ struct TestScores: View {
             
         }
         .navigationTitle("Assessments")
-        .navigationBarItems(trailing: EditButton())
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button { } label: {Image(systemName: "plus")}
+                EditButton()
+            }
+        }
     }
     
 }

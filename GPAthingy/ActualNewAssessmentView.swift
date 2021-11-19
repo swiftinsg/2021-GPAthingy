@@ -17,7 +17,7 @@ struct ActualNewAssessmentView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
-            VStack (alignment: .leading){
+            VStack (alignment: .leading, spacing: 0){
                 Text("ASSESSMENT NAME")
                     .font(.system(size: 13, weight: .bold))
                     .padding(.horizontal)
@@ -42,9 +42,10 @@ struct ActualNewAssessmentView: View {
                 .background(Color_purple)
                 .cornerRadius(15)
                 .padding(.horizontal)
+                Spacer()
             }
+            .navigationTitle("New Assessment")
         }
-        .navigationTitle("New Assessment")
     }
 }
 

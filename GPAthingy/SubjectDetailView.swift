@@ -20,7 +20,7 @@ struct SubjectDetailView: View {
             ForEach(subjects) { subject in
                 let subjectIndex = subjects.firstIndex (of: subject)!
                 VStack(alignment: .leading) {
-                    NavigationLink(destination: ActualSubjectDetailView(subject: $subjects[subjectIndex])) {
+                    NavigationLink(destination: ActualSubjectDetailView(subjectIndex: subjectIndex, subjects: $subjects)) {
                         VStack(alignment: .leading) {
                             HStack {
                                 HStack (alignment: .top){
@@ -29,7 +29,7 @@ struct SubjectDetailView: View {
                                 }
                                 Spacer()
                                 HStack (alignment: .bottom) {
-                                    Text("\(Int(subject.score / subject.totalScore))%")
+                                    Text("\((subject.score / subject.totalScore) * 100, specifier: "%.1f")%")
                                 }
                             }
                             ProgressView(value: subject.score / subject.totalScore, total: 100)

@@ -70,11 +70,11 @@ struct ActualSubjectDetailView: View {
                 
                 TextField("\(subject.totalScore)", text: $totalScoreText)
                     .keyboardType(.decimalPad)
-                    .onChange(of: totalScoreText) { newValue in
+                   .onChange(of: totalScoreText) { newValue in
                         if let total_Score = Double(totalScoreText) {
                             subject.totalScore = total_Score
                         }
-                    }
+                 }
                     .font(.system(size: 22))
                     .foregroundColor(Color.black)
                     .padding()

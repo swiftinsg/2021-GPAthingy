@@ -48,7 +48,7 @@ struct HomeScreen: View {
                             .padding()
                     }
                     
-                    NavigationLink(destination: TestScores(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]))) {
+                    NavigationLink(destination: AssessmentSelectionView()) {
                         Text("Select Test")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding()

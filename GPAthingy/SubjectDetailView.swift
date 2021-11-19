@@ -32,7 +32,7 @@ struct SubjectDetailView: View {
                                     Text("\((subject.score / subject.totalScore) * 100, specifier: "%.1f")%")
                                 }
                             }
-                            ProgressView(value: subject.score / subject.totalScore, total: 100)
+                            ProgressView(value: subject.score / subject.totalScore * 100, total: 100)
                         }
                         
                     }

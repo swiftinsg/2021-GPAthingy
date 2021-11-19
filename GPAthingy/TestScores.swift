@@ -10,6 +10,7 @@ import SwiftUI
 struct TestScores: View {
     @Binding var assessments: [Assessment]
     @Binding var subjects: [Subject]
+    @State var isSheetPresented = false
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     
     var body: some View {
@@ -50,10 +51,18 @@ struct TestScores: View {
         .navigationTitle("Assessments")
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button { } label: {Image(systemName: "plus")}
+                Button {
+                    isSheetPresented = true
+                } label: {Image(systemName: "plus")}
                 EditButton()
             }
         }
+        .sheet(isPresented: $isSheetPresented) {
+
+                    ActualNewAssessmentView(assessments: $assessments)
+
+                }
+
     }
     
 }

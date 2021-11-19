@@ -70,7 +70,7 @@ struct GoalsScreen: View {
                         Image(systemName: "plus")
                     }
                 }
-        }
+            }
         }
     }
 }

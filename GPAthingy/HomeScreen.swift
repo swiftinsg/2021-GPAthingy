@@ -20,6 +20,7 @@ struct HomeScreen: View {
     
     @State private var subject: String = ""
     @State private var score: String = ""
+    @State private var credits: String = ""
     
     var body: some View {
         NavigationView {
@@ -67,6 +68,12 @@ struct HomeScreen: View {
                         .padding()
                         .background(Color_cdc1ff)
                         .cornerRadius(16)
+                    TextField("Credits", text: $credits)
+                        .keyboardType(.decimalPad)
+                        .padding()
+                        .background(Color_cdc1ff)
+                        .cornerRadius(16)
+                    
                     
                     Button {
                         
@@ -82,7 +89,9 @@ struct HomeScreen: View {
                         .background(Color_7371fc)
                         .cornerRadius(15)
                     }
-                    GraphView()
+
+                      
+            
                         
                 }
                 .padding()
@@ -90,9 +99,10 @@ struct HomeScreen: View {
                 .cornerRadius(20)
                 .padding()
                 Spacer()
+                GraphView()
             }
             .navigationBarHidden(true)
-            .padding()
+
         }
     }
 }

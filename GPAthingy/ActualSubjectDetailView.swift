@@ -52,9 +52,21 @@ struct ActualSubjectDetailView: View {
                 TextField("\(subject.score)", text: $scoreText)
                     .keyboardType(.decimalPad)
                     .onChange(of: scoreText) { newValue in
-                        if let score = Double(scoreText) {
-                            subject.score = score
+                        
+                        if scoreText.count > 8 {
+                            scoreText.removeLast()
                         }
+                        
+                        if let score = Double(scoreText) {
+                            
+                            
+                            
+                            subject.score = score
+                            
+                            
+                        }
+                        
+                        
                     }
                     .font(.system(size: 22))
                     .foregroundColor(Color.black)
@@ -70,7 +82,14 @@ struct ActualSubjectDetailView: View {
                 
                 TextField("\(subject.totalScore)", text: $totalScoreText)
                     .keyboardType(.decimalPad)
-                   .onChange(of: totalScoreText) { newValue in
+                    .onChange(of: totalScoreText) { newValue in
+                        
+                        if totalScoreText.count > 8 {
+                            totalScoreText.removeLast()
+                        }
+
+                        
+                        
                         if let total_Score = Double(totalScoreText) {
                             subject.totalScore = total_Score
                         }

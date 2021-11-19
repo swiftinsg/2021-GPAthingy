@@ -68,7 +68,7 @@ struct HomeScreen: View {
                         .padding()
                         .background(Color_cdc1ff)
                         .cornerRadius(16)
-                    TextField("Credits", text: $credits)
+                    TextField("Total Credits", text: $credits)
                         .keyboardType(.decimalPad)
                         .padding()
                         .background(Color_cdc1ff)

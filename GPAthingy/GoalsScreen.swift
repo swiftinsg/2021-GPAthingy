@@ -15,7 +15,7 @@ struct GoalsScreen: View {
     let CircleColorYellow = Color(red: 255 / 255, green: 198 / 255, blue: 0 / 255)
     var circleColor = Color.blue
     
-    @State var todos = [ToDo(title: "Potato",priority: .high), ToDo(title: "respond to questions", priority: .mid), ToDo(title: "ignore haters", priority: .low)]
+    @State var todos = [ToDo(title: "Potato",priority: .high), ToDo(title: "respond to questions", priority: .mid), ToDo(title: "ignore Jia chen", priority: .low)]
     
     
     var body: some View {

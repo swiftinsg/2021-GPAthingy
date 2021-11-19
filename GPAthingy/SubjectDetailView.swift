@@ -8,10 +8,9 @@ import SwiftUI
 
 struct SubjectDetailView: View {
     
-    @State var subjects: [Subject] = [Subject(name: "Math", score: 50, totalScore: 100),
-                                      Subject(name: "English", score: 69, totalScore: 70)]
+    @Binding var subjects: [Subject]
     
-    @Binding var assessment: Assessment;
+    @State var assessment: Assessment
     
     @State var isSheetPresented = false
     
@@ -21,7 +20,7 @@ struct SubjectDetailView: View {
             ForEach(subjects) { subject in
                 let subjectIndex = subjects.firstIndex (of: subject)!
                 VStack(alignment: .leading) {
-                    NavigationLink(destination: ActualSubjectDetailView(subject: $subjects[subjectIndex])) {
+                    NavigationLink(destination: ActualSubjectDetailView(subjectIndex: subjectIndex, subjects: $subjects)) {
                         VStack(alignment: .leading) {
                             HStack {
                                 HStack (alignment: .top){
@@ -30,10 +29,10 @@ struct SubjectDetailView: View {
                                 }
                                 Spacer()
                                 HStack (alignment: .bottom) {
-                                    Text("\(Int(subject.score / subject.totalScore))%")
+                                    Text("\((subject.score / subject.totalScore) * 100, specifier: "%.1f")%")
                                 }
                             }
-                            ProgressView(value: subject.score / subject.totalScore, total: 100)
+                            ProgressView(value: subject.score / subject.totalScore * 100, total: 100)
                         }
                         
                     }
@@ -76,7 +75,9 @@ struct SubjectDetailView: View {
     
     struct SubjectDetailView_Previews: PreviewProvider {
         static var previews: some View {
-            SubjectDetailView(assessment:  .constant (Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)))
+            SubjectDetailView(subjects: .constant(
+                [Subject(name: "Math", score: 39, totalScore: 66)]
+            ), assessment:  Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2))
         }
     }
 }

@@ -27,6 +27,7 @@
 		99B8897B27436F40008C9AA6 /* SubjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B8897A27436F40008C9AA6 /* SubjectDetailView.swift */; };
 		99B8897E27437468008C9AA6 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B8897D27437468008C9AA6 /* Subject.swift */; };
 		99B889812743751F008C9AA6 /* ActualSubjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B889802743751F008C9AA6 /* ActualSubjectDetailView.swift */; };
+		99EC5F3A274754B700A69EAD /* AssessmentSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC5F39274754B700A69EAD /* AssessmentSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		99B8897A27436F40008C9AA6 /* SubjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailView.swift; sourceTree = "<group>"; };
 		99B8897D27437468008C9AA6 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		99B889802743751F008C9AA6 /* ActualSubjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualSubjectDetailView.swift; sourceTree = "<group>"; };
+		99EC5F39274754B700A69EAD /* AssessmentSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				92CB20872745FB0C00B17E70 /* GoalDetailView.swift */,
 				920EA31527434BD10092D157 /* ToDo.swift */,
 				99B748E92742165700960479 /* HomeScreen.swift */,
+				99EC5F39274754B700A69EAD /* AssessmentSelectionView.swift */,
 				99B748EC2742165800960479 /* ProgressScreen.swift */,
 				99B748EB2742165800960479 /* TestScores.swift */,
 				9928870C2745F8A100389CE3 /* ActualNewAssessmentView.swift */,
@@ -200,6 +203,7 @@
 				920EA31627434BD10092D157 /* ToDo.swift in Sources */,
 				99B748ED2742165800960479 /* HomeScreen.swift in Sources */,
 				99B8897E27437468008C9AA6 /* Subject.swift in Sources */,
+				99EC5F3A274754B700A69EAD /* AssessmentSelectionView.swift in Sources */,
 				9928870B2745F62000389CE3 /* GraphView.swift in Sources */,
 				99B748F02742165800960479 /* ProgressScreen.swift in Sources */,
 				99B748EF2742165800960479 /* TestScores.swift in Sources */,

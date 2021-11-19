@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TestScores: View {
     @Binding var assessments: [Assessment]
+    @Binding var subjects: [Subject]
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     
     var body: some View {
@@ -16,7 +17,7 @@ struct TestScores: View {
             ForEach(assessments) { assessment in
                 let assessmentIndex = assessments.firstIndex(of: assessment)!
                 VStack(alignment: .leading) {
-                    NavigationLink(destination: SubjectDetailView(assessment: $assessments[assessmentIndex])) {
+                    NavigationLink(destination: SubjectDetailView(subjects: $subjects, assessment: assessments[assessmentIndex])) {
                         VStack {
                             HStack {
                                 HStack (alignment: .top){
@@ -59,7 +60,7 @@ struct TestScores: View {
 
 struct TestScores_Previews: PreviewProvider {
     static var previews: some View {
-        TestScores(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]))
+        TestScores(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]), subjects: .constant([]))
     }
 }
 

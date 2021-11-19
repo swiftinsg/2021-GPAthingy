@@ -12,6 +12,7 @@ let tabBarSelectedAccent = Color(red: 134 / 255, green: 125 / 255, blue: 254 / 2
 struct ContentView: View {
     @Binding var assessments: [Assessment]
     @Binding var subjects: [Subject]
+    
     var body: some View {
         TabView {
             HomeScreen()
@@ -19,7 +20,7 @@ struct ContentView: View {
                     Label("Home", systemImage: "house.fill")
                 }
             NavigationView {
-                TestScores(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]))
+                TestScores(assessments: $assessments, subjects: $subjects)
 
             }
             .tabItem {

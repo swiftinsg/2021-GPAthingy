@@ -7,20 +7,14 @@
 
 import SwiftUI
 
-extension Double {
-    func removeZerosFromEnd() -> String {
-        let formatter = NumberFormatter()
-        let number = NSNumber(value: self)
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 16 //maximum digits in Double after dot (maximum precision)
-        return String(formatter.string(from: number) ?? "")
-    }
-}
-
 struct ActualSubjectDetailView: View {
-    @Binding var subject: Subject
+    @State var subject = Subject(name: "", score: 0, totalScore: 0)
+    var subjectIndex: Int
+    @Binding var subjects: [Subject]
+    
     
     let Color_red = Color(red: 255 / 255, green: 127 / 255, blue: 127 / 255)
+    let Color_purple = Color(red: 115 / 255, green: 113 / 255, blue: 252 / 255)
     
     @State var scoreText = ""
     @State var totalScoreText = ""
@@ -28,124 +22,130 @@ struct ActualSubjectDetailView: View {
     @State var totalScore = 0.0
     
     var body: some View {
-        VStack {
-            
-            
-            VStack(alignment: .leading) {
-                Text("TEST TITLE")
-                    .font(.system(size: 13, weight: .bold))
+        ScrollView {
+            VStack {
+                
+                VStack(alignment: .leading) {
+                    Text("TEST TITLE")
+                        .font(.system(size: 13, weight: .bold))
+                    
+                    
+                    TextField("Subject", text: $subject.name)
+                        .font(.system(size: 22))
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .background(Color_F5EFFF)
+                        .cornerRadius(15)
+                }
                 
                 
-                TextField("Subject", text: $subject.name)
-                    .font(.system(size: 22))
-                    .foregroundColor(Color.black)
-                    .padding()
-                    .background(Color_F5EFFF)
-                    .cornerRadius(15)
-            }
-            
-            
-            VStack(alignment: .leading) {
-                Text("SCORE")
-                    .font(.system(size: 13, weight: .bold))
-                
-                TextField("\(subject.score)", text: $scoreText)
-                    .keyboardType(.decimalPad)
-                    .onChange(of: scoreText) { newValue in
-                        
-                        if scoreText.count > 8 {
-                            scoreText.removeLast()
-                        }
-                        
-                        if let score = Double(scoreText) {
+                VStack(alignment: .leading) {
+                    Text("SCORE")
+                        .font(.system(size: 13, weight: .bold))
+                    
+                    TextField("\(subject.score)", text: $scoreText)
+                        .keyboardType(.decimalPad)
+                        .onChange(of: scoreText) { newValue in
                             
+                            if scoreText.count > 8 {
+                                scoreText.removeLast()
+                            }
                             
-                            
-                            subject.score = score
+                            if let score = Double(scoreText) {
+                                subject.score = score
+                            }
                             
                             
                         }
-                        
-                        
-                    }
-                    .font(.system(size: 22))
-                    .foregroundColor(Color.black)
-                    .padding()
-                    .background(Color_F5EFFF)
-                    .cornerRadius(15)
-            }
-            
-            
-            VStack(alignment: .leading) {
-                Text("TOTAL SCORE")
-                    .font(.system(size: 13, weight: .bold))
+                        .font(.system(size: 22))
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .background(Color_F5EFFF)
+                        .cornerRadius(15)
+                }
                 
-                TextField("\(subject.totalScore)", text: $totalScoreText)
-                    .keyboardType(.decimalPad)
-                    .onChange(of: totalScoreText) { newValue in
-                        
-                        if totalScoreText.count > 8 {
-                            totalScoreText.removeLast()
+                
+                VStack(alignment: .leading) {
+                    Text("TOTAL SCORE")
+                        .font(.system(size: 13, weight: .bold))
+                    
+                    TextField("\(subject.totalScore)", text: $totalScoreText)
+                        .keyboardType(.decimalPad)
+                        .onChange(of: totalScoreText) { newValue in
+                            
+                            if totalScoreText.count > 8 {
+                                totalScoreText.removeLast()
+                            }
+                            
+                            
+                            
+                            if let total_Score = Double(totalScoreText) {
+                                subject.totalScore = total_Score
+                            }
                         }
-
-                        
-                        
-                        if let total_Score = Double(totalScoreText) {
-                            subject.totalScore = total_Score
-                        }
-                    }
-                    .font(.system(size: 22))
-                    .foregroundColor(Color.black)
-                    .padding()
-                    .background(Color_F5EFFF)
-                    .cornerRadius(15)
+                        .font(.system(size: 22))
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .background(Color_F5EFFF)
+                        .cornerRadius(15)
+                    
+                }
                 
-            }
-            
-            VStack(alignment: .leading) {
-                Text("PERCENTAGE")
-                    .font(.system(size: 13, weight: .bold))
+                VStack(alignment: .leading) {
+                    Text("PERCENTAGE")
+                        .font(.system(size: 13, weight: .bold))
+                    
+                    Text("\((subject.score / subject.totalScore) * 100, specifier: "%.1f")%")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.system(size: 22))
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .background(Color_F5EFFF)
+                        .cornerRadius(15)
+                }
                 
-                Text("\((subject.score / subject.totalScore) * 100, specifier: "%.1f")%")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.system(size: 22))
-                    .foregroundColor(Color.black)
-                    .padding()
-                    .background(Color_F5EFFF)
-                    .cornerRadius(15)
-            }
-            
-            
-            
-            
-            Spacer()
-            
-            
-            Button {
-                
-            } label: {
                 Spacer()
-                Text("Delete")
-                Spacer()
+                
+                Button {
+                    subjects[subjectIndex] = subject
+                } label: {
+                    Spacer()
+                    Text("Save")
+                    Spacer()
+                }
+                .font(.system(size: 22, weight: .bold))
+                .foregroundColor(Color.white)
+                .padding()
+                .background(Color_purple)
+                .cornerRadius(15)
+                .padding(.horizontal)
+                
+                Button {
+                    subjects.remove(at: subjectIndex)
+                } label: {
+                    Spacer()
+                    Text("Delete")
+                    Spacer()
+                }
+                .font(.system(size: 22, weight: .bold))
+                .foregroundColor(Color.white)
+                .padding()
+                .background(Color_red)
+                .cornerRadius(15)
+                .padding(.horizontal)
+                
             }
-            .font(.system(size: 22, weight: .bold))
-            .foregroundColor(Color.white)
+            .onAppear {
+                subject = subjects[subjectIndex]
+            }
             .padding()
-            .background(Color_red)
-            .cornerRadius(15)
-            .padding(.horizontal)
-            
-            
-            
         }
-        .padding()
         
     }
 }
 
 struct ActualSubjectDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ActualSubjectDetailView(subject: .constant(Subject(name: "Math",
-                                                           score: 5, totalScore: 10)))
+        ActualSubjectDetailView(subjectIndex: 0, subjects: .constant([Subject(name: "Jia chen", score: 69, totalScore: 420)]))
     }
 }

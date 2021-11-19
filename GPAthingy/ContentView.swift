@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-let tabBarSelectedAccent = Color(red: 134 / 255, green: 125 / 255, blue: 254 / 255)
+let tabBarSelectedAccent = Color(red: 134 / 255, green: 125 / 255, blue: 254 / 255) // Tab bar colour
 
 struct ContentView: View {
     @Binding var assessments: [Assessment]

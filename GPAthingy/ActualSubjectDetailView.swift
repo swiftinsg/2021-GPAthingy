@@ -88,6 +88,7 @@ struct ActualSubjectDetailView: View {
                     .font(.system(size: 13, weight: .bold))
                 
                 Text("\(Int(subject.score / subject.totalScore))%")
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 22))
                     .foregroundColor(Color.black)
                     .padding()

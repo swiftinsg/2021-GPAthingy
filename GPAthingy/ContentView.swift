@@ -11,6 +11,7 @@ let tabBarSelectedAccent = Color(red: 134 / 255, green: 125 / 255, blue: 254 / 2
 
 struct ContentView: View {
     @Binding var assessments: [Assessment]
+    @Binding var subjects: [Subject]
     var body: some View {
         TabView {
             HomeScreen()
@@ -43,7 +44,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]))
+        ContentView(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]), subjects: .constant([Subject(name: "Math", score: 69, totalScore: 100)]))
         
     }
 }

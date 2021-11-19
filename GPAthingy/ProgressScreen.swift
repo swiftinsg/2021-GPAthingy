@@ -19,33 +19,20 @@ let Color_A594F9 = Color(red: 165 / 255, green: 148 / 255, blue: 249 / 255)
 
 
 struct ProgressScreen: View {
+    @State var subjects: [Subject] = [Subject(name: "Math", score: 50, totalScore: 70),
+                                      Subject(name: "English", score: 69, totalScore: 100)]
     var body: some View {
-        
-            
-        Button {
-            
-        } label: {
-            HStack {
-                Spacer()
-                Text("Math")
-                Spacer()
+        NavigationView {
+            List {
+                ForEach(subjects) {subject in
+                    Text("\(subject.name)")
+                }
             }
-            .font(.system(size: 22, weight: .bold))
-            .foregroundColor(Color.white)
-            .padding()
-            .background(Color_7371fc)
-            .cornerRadius(15)
         }
+        .navigationTitle("Progress")
     }
-            
-            
-        }
         
-       
-            
-        
-    
-
+}
 
 struct ProgressScreen_Previews: PreviewProvider {
     static var previews: some View {

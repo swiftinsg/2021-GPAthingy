@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+extension Double {
+    func removeZerosFromEnd() -> String {
+        let formatter = NumberFormatter()
+        let number = NSNumber(value: self)
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 16 //maximum digits in Double after dot (maximum precision)
+        return String(formatter.string(from: number) ?? "")
+    }
+}
+
 struct ActualSubjectDetailView: View {
     @Binding var subject: Subject
     
@@ -14,6 +24,7 @@ struct ActualSubjectDetailView: View {
     
     @State var scoreText = ""
     @State var totalScoreText = ""
+    @State var achievedScore = 0.0
     @State var totalScore = 0.0
     
     var body: some View {
@@ -38,7 +49,7 @@ struct ActualSubjectDetailView: View {
                 Text("SCORE")
                     .font(.system(size: 13, weight: .bold))
                 
-                TextField("Score", text: $scoreText)
+                TextField("\(subject.score)", text: $scoreText)
                     .keyboardType(.decimalPad)
                     .onChange(of: scoreText) { newValue in
                         if let score = Double(scoreText) {
@@ -57,11 +68,11 @@ struct ActualSubjectDetailView: View {
                 Text("TOTAL SCORE")
                     .font(.system(size: 13, weight: .bold))
                 
-                TextField("Total Score", text: $totalScoreText)
+                TextField("\(subject.totalScore)", text: $totalScoreText)
                     .keyboardType(.decimalPad)
                     .onChange(of: totalScoreText) { newValue in
                         if let total_Score = Double(totalScoreText) {
-                            totalScore = total_Score
+                            subject.totalScore = total_Score
                         }
                     }
                     .font(.system(size: 22))
@@ -76,7 +87,7 @@ struct ActualSubjectDetailView: View {
                 Text("PERCENTAGE")
                     .font(.system(size: 13, weight: .bold))
                 
-                Text("\(subject.score / totalScore, specifier: "%.2f")%")
+                Text("\(Int(subject.score / subject.totalScore))%")
                     .font(.system(size: 22))
                     .foregroundColor(Color.black)
                     .padding()
@@ -115,6 +126,6 @@ struct ActualSubjectDetailView: View {
 struct ActualSubjectDetailView_Previews: PreviewProvider {
     static var previews: some View {
         ActualSubjectDetailView(subject: .constant(Subject(name: "Math",
-                                                           score: 0)))
+                                                           score: 5, totalScore: 10)))
     }
 }

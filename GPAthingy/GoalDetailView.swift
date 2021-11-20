@@ -78,6 +78,6 @@ struct GoalDetailView: View {
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View{
-        GoalDetailView(todo: .constant(ToDo(title: "ignore jia chen cuz he sux", priority: .low)))
+        GoalDetailView(todo: .constant(ToDo(title: "Sample Goal", priority: .low)))
     }
 }

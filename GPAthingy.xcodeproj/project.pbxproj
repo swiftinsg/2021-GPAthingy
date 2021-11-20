@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		920EA31627434BD10092D157 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920EA31527434BD10092D157 /* ToDo.swift */; };
-		921CE3632747782B0041D1B4 /* NewGoalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921CE3622747782B0041D1B4 /* NewGoalScreen.swift */; };
+		921CE3672747FC5D0041D1B4 /* NewGoalScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921CE3662747FC5D0041D1B4 /* NewGoalScreenView.swift */; };
+		9274B0622749402400424184 /* GoalsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274B0612749402400424184 /* GoalsData.swift */; };
+		927FF3BD2748E0D500D87B3E /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927FF3BC2748E0D500D87B3E /* Goal.swift */; };
 		92CB20882745FB0C00B17E70 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CB20872745FB0C00B17E70 /* GoalDetailView.swift */; };
 		99092AE7274431E300E48CC0 /* NewAssessmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99092AE6274431E200E48CC0 /* NewAssessmentView.swift */; };
 		992041FC2746A32000658B29 /* SubjectsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992041FB2746A32000658B29 /* SubjectsData.swift */; };
@@ -32,7 +34,9 @@
 
 /* Begin PBXFileReference section */
 		920EA31527434BD10092D157 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
-		921CE3622747782B0041D1B4 /* NewGoalScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalScreen.swift; sourceTree = "<group>"; };
+		921CE3662747FC5D0041D1B4 /* NewGoalScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalScreenView.swift; sourceTree = "<group>"; };
+		9274B0612749402400424184 /* GoalsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsData.swift; sourceTree = "<group>"; };
+		927FF3BC2748E0D500D87B3E /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		92CB20872745FB0C00B17E70 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
 		99092AE6274431E200E48CC0 /* NewAssessmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAssessmentView.swift; sourceTree = "<group>"; };
 		992041FB2746A32000658B29 /* SubjectsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsData.swift; sourceTree = "<group>"; };
@@ -70,7 +74,6 @@
 		99B748CD2742159A00960479 = {
 			isa = PBXGroup;
 			children = (
-				921CE3622747782B0041D1B4 /* NewGoalScreen.swift */,
 				99B748D82742159A00960479 /* GPAthingy */,
 				99B748D72742159A00960479 /* Products */,
 			);
@@ -91,8 +94,10 @@
 				99B748DB2742159A00960479 /* ContentView.swift */,
 				9928870A2745F61F00389CE3 /* GraphView.swift */,
 				99B748EA2742165700960479 /* GoalsScreen.swift */,
-				9928870E2745F9C500389CE3 /* AssessmentsData.swift */,
 				92CB20872745FB0C00B17E70 /* GoalDetailView.swift */,
+				921CE3662747FC5D0041D1B4 /* NewGoalScreenView.swift */,
+				9274B0612749402400424184 /* GoalsData.swift */,
+				927FF3BC2748E0D500D87B3E /* Goal.swift */,
 				920EA31527434BD10092D157 /* ToDo.swift */,
 				99B748E92742165700960479 /* HomeScreen.swift */,
 				99EC5F39274754B700A69EAD /* AssessmentSelectionView.swift */,
@@ -103,6 +108,7 @@
 				992041FB2746A32000658B29 /* SubjectsData.swift */,
 				99B8897A27436F40008C9AA6 /* SubjectDetailView.swift */,
 				99B889802743751F008C9AA6 /* ActualSubjectDetailView.swift */,
+				9928870E2745F9C500389CE3 /* AssessmentsData.swift */,
 				9988324D27422A140000AAED /* Assessment.swift */,
 				99092AE6274431E200E48CC0 /* NewAssessmentView.swift */,
 				99B748DD2742159D00960479 /* Assets.xcassets */,
@@ -194,15 +200,17 @@
 				992041FC2746A32000658B29 /* SubjectsData.swift in Sources */,
 				9928870D2745F8A100389CE3 /* ActualNewAssessmentView.swift in Sources */,
 				99092AE7274431E300E48CC0 /* NewAssessmentView.swift in Sources */,
-				921CE3632747782B0041D1B4 /* NewGoalScreen.swift in Sources */,
+				9274B0622749402400424184 /* GoalsData.swift in Sources */,
 				92CB20882745FB0C00B17E70 /* GoalDetailView.swift in Sources */,
 				99B748DC2742159A00960479 /* ContentView.swift in Sources */,
 				99B748DA2742159A00960479 /* GPAthingyApp.swift in Sources */,
+				927FF3BD2748E0D500D87B3E /* Goal.swift in Sources */,
 				99B748EE2742165800960479 /* GoalsScreen.swift in Sources */,
 				99B889812743751F008C9AA6 /* ActualSubjectDetailView.swift in Sources */,
 				920EA31627434BD10092D157 /* ToDo.swift in Sources */,
 				99B748ED2742165800960479 /* HomeScreen.swift in Sources */,
 				99B8897E27437468008C9AA6 /* Subject.swift in Sources */,
+				921CE3672747FC5D0041D1B4 /* NewGoalScreenView.swift in Sources */,
 				99EC5F3A274754B700A69EAD /* AssessmentSelectionView.swift in Sources */,
 				9928870B2745F62000389CE3 /* GraphView.swift in Sources */,
 				99B748F02742165800960479 /* ProgressScreen.swift in Sources */,

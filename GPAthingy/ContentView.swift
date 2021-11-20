@@ -10,6 +10,7 @@ import SwiftUI
 let tabBarSelectedAccent = Color(red: 134 / 255, green: 125 / 255, blue: 254 / 255) // Tab bar colour
 
 struct ContentView: View {
+    @Binding var todos: [ToDo]
     @Binding var assessments: [Assessment]
     @Binding var subjects: [Subject]
     
@@ -27,7 +28,7 @@ struct ContentView: View {
                 Label("Test Scores", systemImage: "graduationcap.fill")
             }
             
-            GoalsScreen()
+            GoalsScreen(todos: $todos)
                 .tabItem {
                     Label("Goals", systemImage: "paperplane.fill")
                 }
@@ -45,7 +46,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]), subjects: .constant([Subject(name: "Math", score: 69, totalScore: 100)]))
+        ContentView(todos: .constant([ToDo(title: "Sample Goal", priority: .high)]), assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]), subjects: .constant([Subject(name: "Math", score: 69, totalScore: 100)]))
         
     }
 }

@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct GoalsScreen: View {
-    
+    @Binding var todos: [ToDo]
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     let CircleColorRed = Color(red: 255 / 255, green: 127 / 255, blue: 127 / 255)
     let CircleColorGreen = Color(red: 184 / 255, green: 243 / 255, blue: 213 / 255)
     let CircleColorYellow = Color(red: 255 / 255, green: 198 / 255, blue: 0 / 255)
     var circleColor = Color.blue
     
-    @State var todos = [ToDo(title: "Potato",priority: .high), ToDo(title: "respond to questions", priority: .mid), ToDo(title: "ignore Jia chen", priority: .low)]
+   // @State var todos = [ToDo(title: "Potato",priority: .high), ToDo(title: "respond to questions", priority: .mid), ToDo(title: "ignore Jia chen", priority: .low)]
     
     @State var  isSheetPresented = false
     var body: some View {
@@ -81,7 +81,7 @@ struct GoalsScreen: View {
     struct GoalsScreen_Previews: PreviewProvider {
         static var previews: some View {
             NavigationView {
-                GoalsScreen()
+                GoalsScreen(todos: .constant([ToDo(title: "Sample Goal", priority: .high)]))
             }
         }
     }

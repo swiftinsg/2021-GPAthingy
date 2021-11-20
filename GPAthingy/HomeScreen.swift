@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+struct Topic {
+    var creditScore: Float;
+    var credit: Int;
+}
+
+func calcGPA(_ topics: [Topic]) -> Float {
+    var totalCredit = 0;
+    var creditScored: Float = 0;
+    for i in topics {
+        totalCredit += i.credit;
+        creditScored += i.creditScore*Float(i.credit);
+    }
+    return creditScored / Float(totalCredit)
+}
+
+
 struct HomeScreen: View {
     
     
@@ -21,6 +37,9 @@ struct HomeScreen: View {
     @State private var subject: String = ""
     @State private var score: String = ""
     @State private var credits: String = ""
+    
+    
+
     
     var body: some View {
         NavigationView {
@@ -76,7 +95,7 @@ struct HomeScreen: View {
                     
                     
                     Button {
-                        
+                        print(calcGPA([Topic(creditScore: 4.0, credit: 2), Topic(creditScore: 3.33, credit: 5)]))
                     } label: {
                         HStack {
                             Spacer()
@@ -103,22 +122,7 @@ struct HomeScreen: View {
             }
             .navigationBarHidden(true)
 
-            struct Topic {
-                var creditScore: Float;
-                var credit: Int;
-            }
 
-            func calcGPA(_ topics: [Topic]) -> Float {
-                var totalCredit = 0;
-                var creditScored: Float = 0;
-                for i in topics {
-                    totalCredit += i.credit;
-                    creditScored += i.creditScore*Float(i.credit);
-                }
-                return creditScored/Float(totalCredit)
-            }
-
-            print(calcGPA([Topic(creditScore: 4.0, credit: 2), Topic(creditScore: 3.33, credit: 5)]))
             
         }
     }

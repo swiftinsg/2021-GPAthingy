@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		920EA31627434BD10092D157 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920EA31527434BD10092D157 /* ToDo.swift */; };
-		921CE3632747782B0041D1B4 /* NewGoalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921CE3622747782B0041D1B4 /* NewGoalScreen.swift */; };
 		92CB20882745FB0C00B17E70 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CB20872745FB0C00B17E70 /* GoalDetailView.swift */; };
 		99092AE7274431E300E48CC0 /* NewAssessmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99092AE6274431E200E48CC0 /* NewAssessmentView.swift */; };
 		992041FC2746A32000658B29 /* SubjectsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992041FB2746A32000658B29 /* SubjectsData.swift */; };
@@ -32,7 +31,6 @@
 
 /* Begin PBXFileReference section */
 		920EA31527434BD10092D157 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
-		921CE3622747782B0041D1B4 /* NewGoalScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalScreen.swift; sourceTree = "<group>"; };
 		92CB20872745FB0C00B17E70 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
 		99092AE6274431E200E48CC0 /* NewAssessmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAssessmentView.swift; sourceTree = "<group>"; };
 		992041FB2746A32000658B29 /* SubjectsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsData.swift; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 		99B748CD2742159A00960479 = {
 			isa = PBXGroup;
 			children = (
-				921CE3622747782B0041D1B4 /* NewGoalScreen.swift */,
 				99B748D82742159A00960479 /* GPAthingy */,
 				99B748D72742159A00960479 /* Products */,
 			);
@@ -194,7 +191,6 @@
 				992041FC2746A32000658B29 /* SubjectsData.swift in Sources */,
 				9928870D2745F8A100389CE3 /* ActualNewAssessmentView.swift in Sources */,
 				99092AE7274431E300E48CC0 /* NewAssessmentView.swift in Sources */,
-				921CE3632747782B0041D1B4 /* NewGoalScreen.swift in Sources */,
 				92CB20882745FB0C00B17E70 /* GoalDetailView.swift in Sources */,
 				99B748DC2742159A00960479 /* ContentView.swift in Sources */,
 				99B748DA2742159A00960479 /* GPAthingyApp.swift in Sources */,

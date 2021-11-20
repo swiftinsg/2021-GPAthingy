@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+struct Topic {
+    var creditScore: Float;
+    var credit: Int;
+}
+
+func calcGPA(_ topics: [Topic]) -> Float {
+    var totalCredit = 0;
+    var creditScored: Float = 0;
+    for i in topics {
+        totalCredit += i.credit;
+        creditScored += i.creditScore*Float(i.credit);
+    }
+    return creditScored / Float(totalCredit)
+}
+
+
 struct HomeScreen: View {
     
     
@@ -21,6 +37,9 @@ struct HomeScreen: View {
     @State private var subject: String = ""
     @State private var score: String = ""
     @State private var credits: String = ""
+    
+    
+
     
     var body: some View {
         NavigationView {
@@ -50,7 +69,7 @@ struct HomeScreen: View {
                     }
                     
                     NavigationLink(destination: AssessmentSelectionView()) {
-                        Text("Select Test")
+                        Text("Select Assessment")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding()
                             .background(Color_cdc1ff)
@@ -58,16 +77,7 @@ struct HomeScreen: View {
                             .foregroundColor(.black)
                     }
                     
-                    TextField("Subject", text: $subject)
-                        .padding()
-                        .background(Color_cdc1ff)
-                        .cornerRadius(16)
                     
-                    TextField("Score", text: $score)
-                        .keyboardType(.decimalPad)
-                        .padding()
-                        .background(Color_cdc1ff)
-                        .cornerRadius(16)
                     TextField("Credit Hours", text: $credits)
                         .keyboardType(.decimalPad)
                         .padding()
@@ -76,18 +86,20 @@ struct HomeScreen: View {
                     
                     
                     Button {
-                        
+                        print(calcGPA([Topic(creditScore: 4.0, credit: 2), Topic(creditScore: 3.33, credit: 5)]))
                     } label: {
                         HStack {
                             Spacer()
                             Text("Calculate")
                             Spacer()
+                            
                         }
                         .font(.system(size: 22, weight: .bold))
                         .foregroundColor(Color.white)
                         .padding()
                         .background(Color_7371fc)
                         .cornerRadius(15)
+                        
                     }
 
                       
@@ -103,6 +115,8 @@ struct HomeScreen: View {
             }
             .navigationBarHidden(true)
 
+
+            
         }
     }
 }

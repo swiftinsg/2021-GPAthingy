@@ -17,7 +17,7 @@ struct GoalsScreen: View {
     
     @State var todos = [ToDo(title: "Potato",priority: .high), ToDo(title: "respond to questions", priority: .mid), ToDo(title: "ignore haters", priority: .low)]
     
-    
+    @State var  isSheetPresented = false
     var body: some View {
         
         NavigationView {
@@ -59,26 +59,31 @@ struct GoalsScreen: View {
                 .padding()
             }
             .navigationTitle("Goals")
-            .toolbar {
+            
+            .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        
-                    } label: {
+                    Button (action: {
+                        isSheetPresented = true
+                    }, label: {
                         Image(systemName: "plus")
-                    }
+                    })
                 }
+            }
+        }        .sheet(isPresented: $isSheetPresented) {
+            NewGoalScreenView()
+        }
+        
+    }
+    
+    struct GoalsScreen_Previews: PreviewProvider {
+        static var previews: some View {
+            NavigationView {
+                GoalsScreen()
             }
         }
     }
 }
 
-struct GoalsScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            GoalsScreen()
-        }
-    }
-}

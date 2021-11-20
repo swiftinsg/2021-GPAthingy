@@ -69,7 +69,7 @@ struct HomeScreen: View {
                     }
                     
                     NavigationLink(destination: AssessmentSelectionView()) {
-                        Text("Select Test")
+                        Text("Select Assessment")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding()
                             .background(Color_cdc1ff)
@@ -77,16 +77,7 @@ struct HomeScreen: View {
                             .foregroundColor(.black)
                     }
                     
-                    TextField("Subject", text: $subject)
-                        .padding()
-                        .background(Color_cdc1ff)
-                        .cornerRadius(16)
                     
-                    TextField("Score", text: $score)
-                        .keyboardType(.decimalPad)
-                        .padding()
-                        .background(Color_cdc1ff)
-                        .cornerRadius(16)
                     TextField("Credit Hours", text: $credits)
                         .keyboardType(.decimalPad)
                         .padding()
@@ -101,12 +92,14 @@ struct HomeScreen: View {
                             Spacer()
                             Text("Calculate")
                             Spacer()
+                            
                         }
                         .font(.system(size: 22, weight: .bold))
                         .foregroundColor(Color.white)
                         .padding()
                         .background(Color_7371fc)
                         .cornerRadius(15)
+                        
                     }
 
                       

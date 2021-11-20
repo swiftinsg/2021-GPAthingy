@@ -51,33 +51,25 @@ struct SubjectDetailView: View {
         .navigationTitle("Subjects")
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button { } label: {Image(systemName: "plus")}
+                Button {
+                    isSheetPresented = true
+                } label: {Image(systemName: "plus")}
                 EditButton()
             }
         }
-            
         
-        /* .navigationBarItems(leading: Button(action: {
+        .sheet(isPresented: $isSheetPresented) {
+            NewAssessmentView(subjects: $subjects)
             
-            isSheetPresented = true
-            
-        }, label: {
-            Image(systemName: "plus")
-        }),
-                            
-                            trailing: EditButton()
-        )*/
-        /*.sheet(isPresented: $isSheetPresented) {
-         NewAssessmentView(subjects: $subjects)
-         }*/
-    }
-    
-    
-    struct SubjectDetailView_Previews: PreviewProvider {
-        static var previews: some View {
-            SubjectDetailView(subjects: .constant(
-                [Subject(name: "Math", score: 39, totalScore: 66)]
-            ), assessment:  Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2))
         }
     }
 }
+        
+        struct SubjectDetailView_Previews: PreviewProvider {
+            static var previews: some View {
+                SubjectDetailView(subjects: .constant(
+                    [Subject(name: "Math", score: 39, totalScore: 66)]
+                ), assessment:  Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2))
+            }
+        }
+    

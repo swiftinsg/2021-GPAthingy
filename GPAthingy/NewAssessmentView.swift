@@ -1,108 +1,134 @@
 //
-//  NewAssessmentView.swift
+//  ActualSubjectDetailView.swift
 //  GPAthingy
 //
-//  Created by cpyoufy on 17/11/21.
+//  Created by cpyoufy on 16/11/21.
 //
-
-// Actually NewSubjectView.swift
 
 import SwiftUI
 
 struct NewAssessmentView: View {
+    @State var newSubject = Subject(name: "Math", score: 69, totalScore: 420)
+    @Binding var subjects: [Subject]
+    @Environment(\.presentationMode) var presentationMode
     
-    @State var subjectName = ""
-    @State var score = ""
-    @State var scoreInt = 0.0
-    @State var totalScore = ""
-    @State var totalScoreInt = 0.0
+    let Color_red = Color(red: 255 / 255, green: 127 / 255, blue: 127 / 255)
+    let Color_purple = Color(red: 115 / 255, green: 113 / 255, blue: 252 / 255)
+    
+    @State var scoreText = ""
+    @State var totalScoreText = ""
+    @State var achievedScore = 0.0
+    @State var totalScore = 0.0
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("SUBJECT NAME")
-                .font(.system(size: 13))
-                .bold()
-            
-            TextField("Meth", text: $subjectName)
-                .padding()
-                .background(Color_F5EFFF)
-                .cornerRadius(15)
-            
-            
-            Text("SCORE")
-                .font(.system(size: 13))
-                .bold()
-            
-            TextField("69", text: $score)
-                .keyboardType(.decimalPad)
-                .onChange(of: score) { newValue in
-                    
-                    if score.count > 8 {
-                        score.removeLast()
-                    }
-                    
-                    if let score = Double(score) {
-                        scoreInt = score
-                    }
-                }
-                .padding()
-                .background(Color_F5EFFF)
-                .cornerRadius(15)
-            
-            Text("TOTAL SCORE")
-                .font(.system(size: 13))
-                .bold()
-            
-            TextField("40269", text: $totalScore)
-                .keyboardType(.decimalPad)
-                .onChange(of: totalScore) { newValue in
-                    
-                    if totalScore.count > 8 {
-                        totalScore.removeLast()
-                    }
-                    
-                    if let score = Double(totalScore) {
-                        totalScoreInt = score
-                    }
-                }
-                .padding()
-                .background(Color_F5EFFF)
-                .cornerRadius(15)
-            
-            
-            Text("PERCENTAGE")
-                .font(.system(size: 13))
-                .bold()
-            
-            Text("\((scoreInt / totalScoreInt) * 100, specifier: "%.1f")%")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-                .background(Color_F5EFFF)
-                .cornerRadius(15)
-
-            
-            
-            Spacer()
-            
-            Button {
+        NavigationView {
+            VStack {
                 
-            } label: {
+                VStack(alignment: .leading) {
+                    Text("TEST TITLE")
+                        .font(.system(size: 13, weight: .bold))
+                    
+                    
+                    TextField("Subject", text: $newSubject.name)
+                        .font(.system(size: 22))
+                        .foregroundColor(Color.gray)
+                        .padding()
+                        .background(Color_F5EFFF)
+                        .cornerRadius(15)
+                }
+                
+                
+                VStack(alignment: .leading) {
+                    Text("SCORE")
+                        .font(.system(size: 13, weight: .bold))
+                    
+                    TextField("\(newSubject.score)", text: $scoreText)
+                        .keyboardType(.decimalPad)
+                        .onChange(of: scoreText) { newValue in
+                            
+                            if scoreText.count > 8 {
+                                scoreText.removeLast()
+                            }
+                            
+                            if let score = Double(scoreText) {
+                                newSubject.score = score
+                            }
+                            
+                            
+                        }
+                        .font(.system(size: 22))
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .background(Color_F5EFFF)
+                        .cornerRadius(15)
+                }
+                
+                
+                VStack(alignment: .leading) {
+                    Text("TOTAL SCORE")
+                        .font(.system(size: 13, weight: .bold))
+                    
+                    TextField("\(newSubject.totalScore)", text: $totalScoreText)
+                        .keyboardType(.decimalPad)
+                        .onChange(of: totalScoreText) { newValue in
+                            
+                            if totalScoreText.count > 8 {
+                                totalScoreText.removeLast()
+                            }
+                            
+                            
+                            
+                            if let total_Score = Double(totalScoreText) {
+                                newSubject.totalScore = total_Score
+                            }
+                        }
+                        .font(.system(size: 22))
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .background(Color_F5EFFF)
+                        .cornerRadius(15)
+                    
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("PERCENTAGE")
+                        .font(.system(size: 13, weight: .bold))
+                    
+                    Text("\((newSubject.score / newSubject.totalScore) * 100, specifier: "%.1f")%")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.system(size: 22))
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .background(Color_F5EFFF)
+                        .cornerRadius(15)
+                }
+                
                 Spacer()
-                Text("Save")
-                Spacer()
+                
+                Button {
+                    subjects.append(newSubject)
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Spacer()
+                    Text("Save")
+                    Spacer()
+                }
+                .font(.system(size: 22, weight: .bold))
+                .foregroundColor(Color.white)
+                .padding()
+                .background(Color_purple)
+                .cornerRadius(15)
+                .padding(.horizontal)
             }
-            .font(.system(size: 22, weight: .bold))
-            .foregroundColor(.white)
             .padding()
-            .background(Color_7371fc)
-            .cornerRadius(15)
+            .navigationTitle("Add New Subject")
         }
-        .padding()
+        
     }
 }
 
 struct NewAssessmentView_Previews: PreviewProvider {
     static var previews: some View {
-        NewAssessmentView()
+        NewAssessmentView(subjects: .constant([]))
     }
 }

@@ -69,7 +69,7 @@ struct SubjectDetailView: View {
             static var previews: some View {
                 SubjectDetailView(subjects: .constant(
                     [Subject(name: "Math", score: 39, totalScore: 66)]
-                ), assessment:  Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2))
+                ), assessment:  Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420)]))
             }
         }
     

@@ -14,4 +14,6 @@ struct Assessment: Identifiable, Equatable, Codable {
     var name: String
     var totalScore: Double
     var numberOfSubjects: Int
+    
+    var subjectsInAssessment: [Subject]
 }

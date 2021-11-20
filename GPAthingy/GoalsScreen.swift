@@ -73,7 +73,7 @@ struct GoalsScreen: View {
                 }
             }
         }        .sheet(isPresented: $isSheetPresented) {
-            NewGoalScreenView()
+            NewGoalScreenView(todos: $todos)
         }
         
     }

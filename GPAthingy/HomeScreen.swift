@@ -99,6 +99,8 @@ struct HomeScreen: View {
                         .padding()
                         .background(Color_7371fc)
                         .cornerRadius(15)
+                        .padding(.vertical)
+
                         
                     }
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 let Color_red = Color(red: 255 / 255, green: 127 / 255, blue: 127 / 255)
 let Color_purple = Color(red: 115 / 255, green: 113 / 255, blue: 252 / 255)
+let Color_purple2 = Color(red: 205 / 255, green: 193 / 255, blue: 255 / 255)
 
 struct ActualNewAssessmentView: View {
     @State var newAssessment = Assessment(name: "", totalScore: 0, numberOfSubjects: 0)
@@ -16,8 +17,16 @@ struct ActualNewAssessmentView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
-            Form {
-                TextField("Assessment Name", text: $newAssessment.name )
+            VStack (alignment: .leading, spacing: 0){
+                Text("ASSESSMENT NAME")
+                    .font(.system(size: 13, weight: .bold))
+                    .padding(.horizontal)
+                TextField("Assessment 1", text: $newAssessment.name )
+                    .padding()
+                    .background(Color_purple2)
+                    .cornerRadius(15)
+                    .padding()
+                    
                 Button {
                     assessments.append(newAssessment)
                     presentationMode.wrappedValue.dismiss()
@@ -33,8 +42,10 @@ struct ActualNewAssessmentView: View {
                 .background(Color_purple)
                 .cornerRadius(15)
                 .padding(.horizontal)
+                Spacer()
             }
-        } .navigationTitle("New Assessment")
+            .navigationTitle("New Assessment")
+        }
     }
 }
 

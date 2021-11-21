@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		349500492749312400235FC3 /* NewGoalScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349500482749312400235FC3 /* NewGoalScreenView.swift */; };
+		3495004B2749314300235FC3 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495004A2749314300235FC3 /* Goal.swift */; };
 		920EA31627434BD10092D157 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920EA31527434BD10092D157 /* ToDo.swift */; };
 		921CE3672747FC5D0041D1B4 /* NewGoalScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921CE3662747FC5D0041D1B4 /* NewGoalScreenView.swift */; };
 		9274B0622749402400424184 /* GoalsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274B0612749402400424184 /* GoalsData.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		349500482749312400235FC3 /* NewGoalScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGoalScreenView.swift; sourceTree = "<group>"; };
+		3495004A2749314300235FC3 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		920EA31527434BD10092D157 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		921CE3662747FC5D0041D1B4 /* NewGoalScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalScreenView.swift; sourceTree = "<group>"; };
 		9274B0612749402400424184 /* GoalsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsData.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 		99B748D82742159A00960479 /* GPAthingy */ = {
 			isa = PBXGroup;
 			children = (
+				3495004A2749314300235FC3 /* Goal.swift */,
+				349500482749312400235FC3 /* NewGoalScreenView.swift */,
 				99B748D92742159A00960479 /* GPAthingyApp.swift */,
 				99B748DB2742159A00960479 /* ContentView.swift */,
 				9928870A2745F61F00389CE3 /* GraphView.swift */,
@@ -213,6 +219,7 @@
 				921CE3672747FC5D0041D1B4 /* NewGoalScreenView.swift in Sources */,
 				99EC5F3A274754B700A69EAD /* AssessmentSelectionView.swift in Sources */,
 				9928870B2745F62000389CE3 /* GraphView.swift in Sources */,
+				349500492749312400235FC3 /* NewGoalScreenView.swift in Sources */,
 				99B748F02742165800960479 /* ProgressScreen.swift in Sources */,
 				99B748EF2742165800960479 /* TestScores.swift in Sources */,
 				9988324E27422A140000AAED /* Assessment.swift in Sources */,

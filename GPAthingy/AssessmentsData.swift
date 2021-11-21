@@ -12,9 +12,9 @@ class AssessmentsData: ObservableObject {
     
     @Published var assessments: [Assessment] = []
     
-    let sampleAssessments = [Assessment (name: "Assessment 1", totalScore: 90, numberOfSubjects: 3),
-                             Assessment (name: "Assessment 2", totalScore: 80, numberOfSubjects: 4),
-                             Assessment (name: "Assessment 3", totalScore: 70, numberOfSubjects: 5)]
+    let sampleAssessments = [Assessment (name: "Assessment 1", totalScore: 90, numberOfSubjects: 3, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420)]),
+                             Assessment (name: "Assessment 2", totalScore: 80, numberOfSubjects: 4, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420)]),
+                             Assessment (name: "Assessment 3", totalScore: 70, numberOfSubjects: 5, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420)])]
     func getArchiveURL() -> URL {
         let plistName = "assessments.plist"
         

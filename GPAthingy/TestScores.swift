@@ -69,7 +69,7 @@ struct TestScores: View {
 
 struct TestScores_Previews: PreviewProvider {
     static var previews: some View {
-        TestScores(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]), subjects: .constant([]))
+        TestScores(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420)])]), subjects: .constant([]))
     }
 }
 

@@ -46,7 +46,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(todos: .constant([ToDo(title: "Sample Goal", priority: .high)]), assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2)]), subjects: .constant([Subject(name: "Math", score: 69, totalScore: 100)]))
+        ContentView(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420)])]), subjects: .constant([Subject(name: "Math", score: 69, totalScore: 100)]))
         
     }
 }

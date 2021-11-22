@@ -51,6 +51,7 @@ struct HomeScreen: View {
     @State var credits: String = ""
     @State var results: Double = 0
     @State var assessmentIndex = 0
+    @State var credit: Double = 0
     @Binding var assessments: [Assessment]
     
 
@@ -94,7 +95,9 @@ struct HomeScreen: View {
                         .cornerRadius(16)
                         .foregroundColor(.black)
                     
-                    TextField("Credit Hours", text: $credits)
+                    TextField("Credit Hours", text: $credits) {
+                        credit = Double(credits)!
+                    }
                         .keyboardType(.decimalPad)
                         .padding()
                         .background(Color_cdc1ff)
@@ -103,8 +106,9 @@ struct HomeScreen: View {
                     
                     Button {
                         var assessmentResults: Double = calcAssessmentPercentage(assessment: assessments[assessmentIndex])
-                        results = assessmentResults / credits
-                        print(calcGPA([Topic(creditScore: 4.0, credit: 2), Topic(creditScore: 3.33, credit: 5)]))
+
+                        results = assessmentResults * 100 / credit
+                        print(results)
                     } label: {
                         HStack {
                             Spacer()
@@ -122,7 +126,7 @@ struct HomeScreen: View {
                         
                     }
 
-                      
+                      Text("\(results)")
             
                         
                 }

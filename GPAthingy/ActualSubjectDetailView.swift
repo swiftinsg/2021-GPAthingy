@@ -133,19 +133,13 @@ struct ActualSubjectDetailView: View {
                 VStack(alignment: .leading) {
                     Text("GPA of subject")
                         .font(.system(size: 13, weight: .bold))
-                    
-                    subject.gpa = subject.score / subject.totalScore
-                    
-                    if subject.gpa >= 92 {
-                        Text("4.0")
-                        subject.gpa = 4.0
-                    }
-                    else if subject.gpa >= 90 {
-                        Text("3.7")
-                        subject.gpa = 3.7
-                    }
-                    
-                    Text("\((subject.score / subject.totalScore) * 10 * subject.creditHours, specifier: "%.1f")")
+                    Text("\(subject.gpa, specifier: "%.1f")")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.system(size: 22))
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .background(Color_F5EFFF)
+                        .cornerRadius(15)
                 }
                 
                 Spacer()
@@ -181,10 +175,60 @@ struct ActualSubjectDetailView: View {
             }
             .onAppear {
                 subject = subjects[subjectIndex]
+                updateGPA()
+            }
+            .onChange (of: subject.score) { _ in
+                updateGPA()
+            }
+            .onChange (of: subject.totalScore) { _ in
+                updateGPA()
             }
             .padding()
         }
         
+    }
+    
+    
+    
+    func updateGPA () {
+        subject.gpa = subject.score / subject.totalScore * 100
+                
+        if subject.gpa >= 93 {
+            subject.gpa = 4.0
+        }
+        else if subject.gpa >= 90 {
+            subject.gpa = 3.7
+        }
+        else if subject.gpa >= 87 {
+            subject.gpa = 3.3
+        }
+        else if subject.gpa >= 83 {
+            subject.gpa = 3.0
+        }
+        else if subject.gpa >= 80 {
+            subject.gpa = 2.7
+        }
+        else if subject.gpa >= 77 {
+            subject.gpa = 2.3
+        }
+        else if subject.gpa >= 73 {
+            subject.gpa = 2.0
+        }
+        else if subject.gpa >= 70 {
+            subject.gpa = 1.7
+        }
+        else if subject.gpa >= 67 {
+            subject.gpa = 1.3
+        }
+        else if subject.gpa >= 65 {
+            subject.gpa = 1.0
+        }
+        else {
+            subject.gpa = 0.0
+        }
+        
+        print(subject.gpa)
+
     }
 }
 

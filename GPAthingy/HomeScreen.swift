@@ -69,7 +69,7 @@ struct HomeScreen: View {
                     }
                     
                     NavigationLink(destination: AssessmentSelectionView()) {
-                        Text("Select Assessment")
+                        Text("Select Subject")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding()
                             .background(Color_cdc1ff)

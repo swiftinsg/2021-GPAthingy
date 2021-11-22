@@ -17,10 +17,10 @@ struct SubjectDetailView: View {
     let listItemColor = Color(red: 245 / 255, green: 239 / 255, blue: 255 / 255)
     var body: some View {
         List {
-            ForEach(subjects) { subject in
-                let subjectIndex = subjects.firstIndex (of: subject)!
+            ForEach(assessment.subjectsInAssessment) { subject in
+                let subjectIndex = assessment.subjectsInAssessment.firstIndex (of: subject)!
                 VStack(alignment: .leading) {
-                    NavigationLink(destination: ActualSubjectDetailView(subjectIndex: subjectIndex, subjects: $subjects)) {
+                    NavigationLink(destination: ActualSubjectDetailView(subjectIndex: subjectIndex, subjects: $assessment.subjectsInAssessment)) {
                         VStack(alignment: .leading) {
                             HStack {
                                 HStack (alignment: .top){
@@ -59,7 +59,7 @@ struct SubjectDetailView: View {
         }
         
         .sheet(isPresented: $isSheetPresented) {
-            NewAssessmentView(subjects: $subjects)
+            NewAssessmentView(subjects: $assessment.subjectsInAssessment)
             
         }
     }
@@ -68,8 +68,8 @@ struct SubjectDetailView: View {
         struct SubjectDetailView_Previews: PreviewProvider {
             static var previews: some View {
                 SubjectDetailView(subjects: .constant(
-                    [Subject(name: "Math", score: 39, totalScore: 66)]
-                ), assessment:  Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420)]))
+                    [Subject(name: "Math", score: 39, totalScore: 66, creditHours: 2)]
+                ), assessment:  Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420, creditHours: 2)]))
             }
         }
     

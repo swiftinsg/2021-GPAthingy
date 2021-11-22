@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ActualSubjectDetailView: View {
-    @State var subject = Subject(name: "", score: 0, totalScore: 0)
+    @State var subject = Subject(name: "", score: 0, totalScore: 0, creditHours: 2)
     var subjectIndex: Int
     @Binding var subjects: [Subject]
     
@@ -18,6 +18,7 @@ struct ActualSubjectDetailView: View {
     
     @State var scoreText = ""
     @State var totalScoreText = ""
+    @State var creditText = ""
     @State var achievedScore = 0.0
     @State var totalScore = 0.0
     
@@ -92,6 +93,31 @@ struct ActualSubjectDetailView: View {
                 }
                 
                 VStack(alignment: .leading) {
+                    Text("CREDIT HOURS")
+                        .font(.system(size: 13, weight: .bold))
+                    
+                    TextField("\(subject.creditHours)", text: $creditText)
+                        .keyboardType(.decimalPad)
+                        .onChange(of: creditText) { newValue in
+                            
+                            if creditText.count > 8 {
+                                creditText.removeLast()
+                            }
+                            
+                            if let credits = Double(creditText) {
+                                subject.creditHours = credits
+                            }
+                            
+                            
+                        }
+                        .font(.system(size: 22))
+                        .foregroundColor(Color.black)
+                        .padding()
+                        .background(Color_F5EFFF)
+                        .cornerRadius(15)
+                }
+                
+                VStack(alignment: .leading) {
                     Text("PERCENTAGE")
                         .font(.system(size: 13, weight: .bold))
                     
@@ -102,6 +128,17 @@ struct ActualSubjectDetailView: View {
                         .padding()
                         .background(Color_F5EFFF)
                         .cornerRadius(15)
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("GPA of subject")
+                        .font(.system(size: 13, weight: .bold))
+                    
+                    var percentageScore = subject.score / subject.totalScore
+                    if percentageScore > 92 {
+                        Text("\((subject.score / subject.totalScore) * 10 * subject.creditHours, specifier: "%.1f")")
+                    }
+                    Text("\((subject.score / subject.totalScore) * 10 * subject.creditHours, specifier: "%.1f")")
                 }
                 
                 Spacer()
@@ -146,6 +183,6 @@ struct ActualSubjectDetailView: View {
 
 struct ActualSubjectDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ActualSubjectDetailView(subjectIndex: 0, subjects: .constant([Subject(name: "Jia chen", score: 69, totalScore: 420)]))
+        ActualSubjectDetailView(subjectIndex: 0, subjects: .constant([Subject(name: "Jia chen", score: 69, totalScore: 420,  creditHours: 2)]))
     }
 }

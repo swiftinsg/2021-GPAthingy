@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewAssessmentView: View {
-    @State var newSubject = Subject(name: "Math", score: 69, totalScore: 420)
+    @State var newSubject = Subject(name: "Math", score: 69, totalScore: 420, creditHours: 2)
     @Binding var subjects: [Subject]
     @Environment(\.presentationMode) var presentationMode
     

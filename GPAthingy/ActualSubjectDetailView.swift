@@ -135,9 +135,11 @@ struct ActualSubjectDetailView: View {
                         .font(.system(size: 13, weight: .bold))
                     
                     var percentageScore = subject.score / subject.totalScore
+                    
                     if percentageScore > 92 {
                         Text("\((subject.score / subject.totalScore) * 10 * subject.creditHours, specifier: "%.1f")")
                     }
+                    
                     Text("\((subject.score / subject.totalScore) * 10 * subject.creditHours, specifier: "%.1f")")
                 }
                 

@@ -18,7 +18,7 @@ struct TestScores: View {
             ForEach(assessments) { assessment in
                 let assessmentIndex = assessments.firstIndex(of: assessment)!
                 VStack(alignment: .leading) {
-                    NavigationLink(destination: SubjectDetailView(subjects: $subjects, assessment: assessments[assessmentIndex])) {
+                    NavigationLink(destination: SubjectDetailView(subjects: $subjects, assessment: $assessments[assessmentIndex])) {
                         VStack {
                             HStack {
                                 HStack (alignment: .top){

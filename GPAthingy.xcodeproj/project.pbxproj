@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		349500492749312400235FC3 /* NewGoalScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349500482749312400235FC3 /* NewGoalScreenView.swift */; };
-		3495004B2749314300235FC3 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495004A2749314300235FC3 /* Goal.swift */; };
 		920EA31627434BD10092D157 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920EA31527434BD10092D157 /* ToDo.swift */; };
 		921CE3672747FC5D0041D1B4 /* NewGoalScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921CE3662747FC5D0041D1B4 /* NewGoalScreenView.swift */; };
 		9274B0622749402400424184 /* GoalsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9274B0612749402400424184 /* GoalsData.swift */; };

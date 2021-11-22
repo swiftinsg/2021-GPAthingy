@@ -20,8 +20,19 @@ func calcAssessmentPercentage(assessment: Assessment) -> Double {
     } / Double(assessment.subjectsInAssessment.count)
     
     return subjects * 100
-    
-    
+}
+
+func totalSubjGPACredit(assessment: Assessment) -> Double {
+    var credits: Double = 0
+    let subjects = assessment.subjectsInAssessment.map {
+        $0.gpa * $0.creditHours
+    }.reduce(0) {
+        $0 + $1
+    }
+    for subject in assessment.subjectsInAssessment {
+        credits += subject.creditHours
+    }
+    return subjects / credits
 }
 
 func calcGPA(_ topics: [Topic]) -> Float {
@@ -48,7 +59,6 @@ struct HomeScreen: View {
     
     @State var subject: String = ""
     @State var score: String = ""
-    @State var credits: String = ""
     @State var results: Double = 0
     @State var assessmentIndex = 0
     @State var credit: Double = 0
@@ -94,20 +104,17 @@ struct HomeScreen: View {
                         .background(Color_cdc1ff)
                         .cornerRadius(16)
                         .foregroundColor(.black)
-                    
-                    TextField("Credit Hours", text: $credits) {
-                        credit = Double(credits)!
-                    }
-                        .keyboardType(.decimalPad)
-                        .padding()
-                        .background(Color_cdc1ff)
-                        .cornerRadius(16)
-                    
+//
+//                    TextField("Credit Hours", text: $credits)
+//                        .keyboardType(.decimalPad)
+//                        .padding()
+//                        .background(Color_cdc1ff)
+//                        .cornerRadius(16)
+//
                     
                     Button {
-                        var assessmentResults: Double = calcAssessmentPercentage(assessment: assessments[assessmentIndex])
-
-                        results = assessmentResults * 100 / credit
+                        print(assessments[assessmentIndex])
+                        results = totalSubjGPACredit(assessment: assessments[assessmentIndex])
                         print(results)
                     } label: {
                         HStack {

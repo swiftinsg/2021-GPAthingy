@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ActualSubjectDetailView: View {
-    @State var subject = Subject(name: "", score: 0, totalScore: 0, creditHours: 2)
+    @State var subject = Subject(name: "", score: 0, totalScore: 0, creditHours: 2, gpa: 4.0)
     var subjectIndex: Int
     @Binding var subjects: [Subject]
     
@@ -134,10 +134,15 @@ struct ActualSubjectDetailView: View {
                     Text("GPA of subject")
                         .font(.system(size: 13, weight: .bold))
                     
-                    var percentageScore = subject.score / subject.totalScore
+                    subject.gpa = subject.score / subject.totalScore
                     
-                    if percentageScore > 92 {
-                        Text("\((subject.score / subject.totalScore) * 10 * subject.creditHours, specifier: "%.1f")")
+                    if subject.gpa >= 92 {
+                        Text("4.0")
+                        subject.gpa = 4.0
+                    }
+                    else if subject.gpa >= 90 {
+                        Text("3.7")
+                        subject.gpa = 3.7
                     }
                     
                     Text("\((subject.score / subject.totalScore) * 10 * subject.creditHours, specifier: "%.1f")")
@@ -185,6 +190,6 @@ struct ActualSubjectDetailView: View {
 
 struct ActualSubjectDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ActualSubjectDetailView(subjectIndex: 0, subjects: .constant([Subject(name: "Jia chen", score: 69, totalScore: 420,  creditHours: 2)]))
+        ActualSubjectDetailView(subjectIndex: 0, subjects: .constant([Subject(name: "Jia chen", score: 69, totalScore: 420,  creditHours: 2, gpa: 4.0)]))
     }
 }

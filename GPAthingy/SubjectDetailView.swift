@@ -68,8 +68,8 @@ struct SubjectDetailView: View {
         struct SubjectDetailView_Previews: PreviewProvider {
             static var previews: some View {
                 SubjectDetailView(subjects: .constant(
-                    [Subject(name: "Math", score: 39, totalScore: 66, creditHours: 2)]
-                ), assessment: .constant(Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420, creditHours: 2)])))
+                    [Subject(name: "Math", score: 39, totalScore: 66, creditHours: 2, gpa: 4.0)]
+                ), assessment: .constant(Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420, creditHours: 2, gpa: 3.7)])))
             }
         }
     

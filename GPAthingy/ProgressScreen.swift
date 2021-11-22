@@ -19,8 +19,8 @@ let Color_A594F9 = Color(red: 165 / 255, green: 148 / 255, blue: 249 / 255)
 
 
 struct ProgressScreen: View {
-    @State var subjects: [Subject] = [Subject(name: "Math", score: 50, totalScore: 70, creditHours: 2),
-                                      Subject(name: "English", score: 69, totalScore: 100, creditHours: 2)]
+    @State var subjects: [Subject] = [Subject(name: "Math", score: 50, totalScore: 70, creditHours: 2, gpa: 3.7),
+                                      Subject(name: "English", score: 69, totalScore: 100, creditHours: 2, gpa: 4.0)]
     var body: some View {
         
         

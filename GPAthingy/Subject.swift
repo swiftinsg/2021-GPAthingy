@@ -15,4 +15,5 @@ struct Subject: Identifiable, Equatable, Codable {
     var score: Double
     var totalScore: Double
     var creditHours: Double
+    var gpa: Double
 }

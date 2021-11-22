@@ -12,7 +12,7 @@ let Color_purple = Color(red: 115 / 255, green: 113 / 255, blue: 252 / 255)
 let Color_purple2 = Color(red: 205 / 255, green: 193 / 255, blue: 255 / 255)
 
 struct ActualNewAssessmentView: View {
-    @State var newAssessment = Assessment(name: "", totalScore: 0, numberOfSubjects: 0, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420, creditHours: 2)])
+    @State var newAssessment = Assessment(name: "", totalScore: 0, numberOfSubjects: 0, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420, creditHours: 2, gpa: 4.0)])
     @Binding var assessments: [Assessment]
     @Environment(\.presentationMode) var presentationMode
     var body: some View {

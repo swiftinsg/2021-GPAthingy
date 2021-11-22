@@ -12,6 +12,18 @@ struct Topic {
     var credit: Int;
 }
 
+func calcAssessmentPercentage(assessment: Assessment) -> Double {
+    let subjects = assessment.subjectsInAssessment.map {
+        $0.score / $0.totalScore
+    }.reduce(0) {
+        $0 + $1
+    } / Double(assessment.subjectsInAssessment.count)
+    
+    return subjects * 100
+    
+    
+}
+
 func calcGPA(_ topics: [Topic]) -> Float {
     var totalCredit = 0;
     var creditScored: Float = 0;
@@ -34,10 +46,12 @@ struct HomeScreen: View {
     
     let Color_A594F9 = Color(red: 165 / 255, green: 148 / 255, blue: 249 / 255)
     
-    @State private var subject: String = ""
-    @State private var score: String = ""
-    @State private var credits: String = ""
-    
+    @State var subject: String = ""
+    @State var score: String = ""
+    @State var credits: String = ""
+    @State var results: Double = 0
+    @State var assessmentIndex = 0
+    @Binding var assessments: [Assessment]
     
 
     
@@ -68,15 +82,17 @@ struct HomeScreen: View {
                             .padding()
                     }
                     
-                    NavigationLink(destination: AssessmentSelectionView()) {
-                        Text("Select Subject")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding()
-                            .background(Color_cdc1ff)
-                            .cornerRadius(16)
-                            .foregroundColor(.black)
+                    Picker("Select Assessment", selection: $assessmentIndex) {
+                        ForEach(0 ..< assessments.count) { n in
+                            Text(assessments[n].name)
+                                .tag(n)
+                        }
                     }
-                    
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                        .background(Color_cdc1ff)
+                        .cornerRadius(16)
+                        .foregroundColor(.black)
                     
                     TextField("Credit Hours", text: $credits)
                         .keyboardType(.decimalPad)
@@ -86,6 +102,8 @@ struct HomeScreen: View {
                     
                     
                     Button {
+                        var assessmentResults: Double = calcAssessmentPercentage(assessment: assessments[assessmentIndex])
+                        results = assessmentResults / credits
                         print(calcGPA([Topic(creditScore: 4.0, credit: 2), Topic(creditScore: 3.33, credit: 5)]))
                     } label: {
                         HStack {
@@ -113,7 +131,7 @@ struct HomeScreen: View {
                 .cornerRadius(20)
                 .padding()
                 Spacer()
-                GraphView()
+               
             }
             .navigationBarHidden(true)
 
@@ -128,7 +146,7 @@ struct HomeScreen: View {
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreen()
+        HomeScreen(assessments: .constant([Assessment(name: "Assessment 1", totalScore: 69, numberOfSubjects: 2, subjectsInAssessment: [Subject(name: "Math", score: 69, totalScore: 420, creditHours: 2, gpa: 4.0)])]))
     }
 }
 

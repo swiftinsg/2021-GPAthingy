@@ -27,10 +27,10 @@ struct TestScores: View {
                                 }
                                 Spacer()
                                 HStack (alignment: .bottom) {
-                                    Text("\(Int(assessment.totalScore))%")
+                                    Text("\(Int(calcAssessmentPercentage(assessment: assessment)))%")
                                 }
                             }
-                            ProgressView(value: assessment.totalScore, total: 100)
+                            ProgressView(value: calcAssessmentPercentage(assessment: assessment), total: 100)
                         }
                     }
                     
@@ -58,13 +58,24 @@ struct TestScores: View {
             }
         }
         .sheet(isPresented: $isSheetPresented) {
-
-                    ActualNewAssessmentView(assessments: $assessments)
-
-                }
-
+            
+            ActualNewAssessmentView(assessments: $assessments)
+            
+        }
+        
     }
-
+    
+    func calcAssessmentPercentage(assessment: Assessment) -> Double {
+        let subjects = assessment.subjectsInAssessment.map {
+            $0.score / $0.totalScore
+        }.reduce(0) {
+            $0 + $1
+        } / Double(assessment.subjectsInAssessment.count)
+        
+        return subjects * 100
+        
+        
+    }
     
 }
 

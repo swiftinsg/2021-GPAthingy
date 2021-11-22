@@ -16,7 +16,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            HomeScreen()
+            HomeScreen(assessments: $assessments)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }

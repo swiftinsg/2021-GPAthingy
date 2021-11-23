@@ -32,10 +32,6 @@ struct ContentView: View {
                 .tabItem {
                     Label("Goals", systemImage: "paperplane.fill")
                 }
-            ProgressScreen()
-                .tabItem {
-                    Label("Progress", systemImage: "chart.xyaxis.line")
-                }
         }
         .onAppear() {
             UITabBar.appearance().backgroundColor = .white

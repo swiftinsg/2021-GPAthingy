@@ -63,6 +63,7 @@ struct HomeScreen: View {
     @State var assessmentIndex = 0
     @State var credit: Double = 0
     @Binding var assessments: [Assessment]
+    @State var showResults: Bool = false
     
 
     
@@ -116,6 +117,7 @@ struct HomeScreen: View {
                         print(assessments[assessmentIndex])
                         results = totalSubjGPACredit(assessment: assessments[assessmentIndex])
                         print(results)
+                        showResults = true
                     } label: {
                         HStack {
                             Spacer()
@@ -133,7 +135,10 @@ struct HomeScreen: View {
                         
                     }
 
-                      Text("\(results)")
+                
+                    if showResults {
+                        Text("GPA: \(results, specifier: "%.1f")")
+                    }
             
                         
                 }

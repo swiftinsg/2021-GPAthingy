@@ -111,19 +111,6 @@ struct NewGoalScreenView: View {
             .padding()
                 
                 
-                Button("Discard Goal") {
-                    presentationMode.wrappedValue.dismiss()
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .foregroundColor(Color.white)
-                .background(CircleColorRed)
-                .font(.system(size: 22, weight: .bold))
-                .cornerRadius(15)
-                .padding(.horizontal)
-                
-                
-                
             }.navigationTitle("New Goal")
         }
     }
